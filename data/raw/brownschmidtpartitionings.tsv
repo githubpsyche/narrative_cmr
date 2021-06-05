@@ -1,0 +1,686 @@
+subject	story	timeTest	serialPos	origText	recalled	posRec	recText	Observations
+1	1	1	1	One fine day an old Maine man was fishing 	1	1	There was once an old man fishing 	
+1	1	1	2	on his favorite lake 	0	NaN		
+1	1	1	3	and catching very little	1	2	He was catching very little	
+1	1	1	4	Finally, he gave up	0	NaN		
+1	1	1	5	and walked back along the shore to his fishing shack	1	3	He went back to his house	
+1	1	1	6	When he got close to the front door, he saw it was open.	0	NaN		
+1	1	1	7	Being of a suspicious nature, he walked to the door quietly and looked inside	0	NaN		
+1	1	1	8	There was a big black bear	0	NaN		
+1	1	1	9	It was just pulling the cork out of his molasses jug with its teeth	0	NaN		
+1	1	1	10	The molasses spilled all over the floor	0	NaN		
+1	1	1	11	and the bear rubbed his paw in it, smearing it all over	1	4	The bear had his paw in a jar of molasses	
+1	1	1	12	When the old man saw the bear, he screamed out loud causing the bear the startle and run to the lake shore	0	NaN		
+1	1	1	13	Standing on its hind legs	0	NaN		
+1	1	1	14	it held up the paw full of molasses	0	NaN		
+1	1	1	15	Soon all the flies and bugs and mosquitoes were swarming	0	NaN		
+1	1	1	16	all over the sticky sweet paw	0	NaN		
+1	1	1	17	Then the bear waded into the water	1	5	The bear then went back to the river	
+1	1	1	18	with his sticky paw full of bugs	0	NaN		
+1	1	1	19	It held the paw out over the water	1	6	He waved his paw over the water	
+1	1	1	20	Suddenly, a big trout came jumping out of the water trying to get to the flies	0	NaN		
+1	1	1	21	The bear gave it a swat and it flew to the shore and flopped there	1	7	a trout appeared. He threw it to the side of the river	
+1	1	1	22	Then another fish jumped into the air after the flies, followed swiftly by another	0	NaN		
+1	1	1	23	Every time a fish jumped after his paw, the bear cuffed it ashore	1	8	He cuffed every one to the side of the river	
+1	1	1	24	Soon it had a large pile	0	NaN		
+1	1	1	25	The old man had caught nothing	0	NaN		
+1	1	1	26	He watched that bear eat half a dozen trout	0	NaN		
+1	1	1	27	his stomach rumbling	1	12	The old mans stomach was rumbling	
+1	1	1	28	All he had for dinner was some bread and what was left of the molasses	1	13	All he had for dinner was a bread and leftover molasses	
+1	1	1	29	Finally the bear paused in his eating	0	NaN		
+1	1	1	30	and looked over to the bushes where the old man was hidden	1	9	The bear saw the old man hiding	
+1	1	1	31	The bear stood up and laid the remaining fish in a row	1	11	in a line	
+1	1	1	32	Then it walked away up the shore	0	NaN		
+1	1	1	33	The old man crept out of the bushes and down to the shore	0	NaN		
+1	1	1	34	Sure enough, the bear had left six large trout for him	1	10	then laid six trout	
+1	1	1	35	He looked over at the bear	0	NaN		
+1	1	1	36	It was standing at the edge of the wood watching	0	NaN		
+1	1	1	37	"Thanks a lot," the old man called to the bear	1	14	The old man says thank you to the bear	
+1	1	1	38	The bear waved the now-clean paw at the old man	1	15	The bear waves his now clean paw back to the man	
+1	1	1	39	and disappeared into the thicket	0	NaN		
+1	1	1	40	"Well," said the old man, "That's the first time a bear has ever paid me for my molasses."	0	NaN		
+1	1	1	41	The old man never hunted bears again	1	16	This is the last time I hunt bear he thought	
+1	1	2	1	One fine day an old Maine man was fishing 	1	1	One fine day an old Maine man was catching fish 	
+1	1	2	2	on his favorite lake 	1	2	on his favorite lake	
+1	1	2	3	and catching very little	1	3	He was catching very little	
+1	1	2	4	Finally, he gave up	0	NaN		
+1	1	2	5	and walked back along the shore to his fishing shack	1	4	He returned to his fishing shack 	
+1	1	2	6	When he got close to the front door, he saw it was open.	1	5	When he got close he realized the front door was open	
+1	1	2	7	Being of a suspicious nature, he walked to the door quietly and looked inside	1	6	Being of a suspicious nature he crept around to see who was inside	
+1	1	2	8	There was a big black bear	1	7	There was a big black bear	
+1	1	2	9	It was just pulling the cork out of his molasses jug with its teeth	0	NaN		
+1	1	2	10	The molasses spilled all over the floor	1	9	The jar fell to the ground and shattered and the molasses was all over the floor	
+1	1	2	11	and the bear rubbed his paw in it, smearing it all over	1	10	The bear rubbed his paws in it 	
+1	1	2	12	When the old man saw the bear, he screamed out loud causing the bear the startle and run to the lake shore	1	8	The old man screamed scaring the bear;and ran to the side of the lake	
+1	1	2	13	Standing on its hind legs	1	12	There it stood on its hind legs 	
+1	1	2	14	it held up the paw full of molasses	1	13	waving it paws in the air	
+1	1	2	15	Soon all the flies and bugs and mosquitoes were swarming	1	14	Soon a swarm of flies surrounded his paw	
+1	1	2	16	all over the sticky sweet paw	0	NaN		
+1	1	2	17	Then the bear waded into the water	1	15	The bear crept into the lake 	
+1	1	2	18	with his sticky paw full of bugs	0	NaN		
+1	1	2	19	It held the paw out over the water	0	NaN		
+1	1	2	20	Suddenly, a big trout came jumping out of the water trying to get to the flies	1	16	a large trout jumped out of the water to eat the flies	
+1	1	2	21	The bear gave it a swat and it flew to the shore and flopped there	0	NaN		
+1	1	2	22	Then another fish jumped into the air after the flies, followed swiftly by another	0	NaN		
+1	1	2	23	Every time a fish jumped after his paw, the bear cuffed it ashore	1	17	The bear continued to catch trout. He cuffs everyone to the side of the lake	
+1	1	2	24	Soon it had a large pile	0	NaN		
+1	1	2	25	The old man had caught nothing	0	NaN		
+1	1	2	26	He watched that bear eat half a dozen trout	0	NaN		
+1	1	2	27	his stomach rumbling	0	NaN		
+1	1	2	28	All he had for dinner was some bread and what was left of the molasses	0	NaN		
+1	1	2	29	Finally the bear paused in his eating	0	NaN		
+1	1	2	30	and looked over to the bushes where the old man was hidden	1	18	He eventually looks up and sees the old man hiding	
+1	1	2	31	The bear stood up and laid the remaining fish in a row	1	19	Eventually the bear lines up the remaining fish	
+1	1	2	32	Then it walked away up the shore	1	20	and leaves	
+1	1	2	33	The old man crept out of the bushes and down to the shore	0	NaN		
+1	1	2	34	Sure enough, the bear had left six large trout for him	0	NaN		
+1	1	2	35	He looked over at the bear	0	NaN		
+1	1	2	36	It was standing at the edge of the wood watching	0	NaN		
+1	1	2	37	"Thanks a lot," the old man called to the bear	0	NaN		
+1	1	2	38	The bear waved the now-clean paw at the old man	0	NaN		
+1	1	2	39	and disappeared into the thicket	0	NaN		
+1	1	2	40	"Well," said the old man, "That's the first time a bear has ever paid me for my molasses."	0	NaN		
+1	1	2	41	The old man never hunted bears again	0	NaN		
+1	1	3	1	One fine day an old Maine man was fishing 	0	NaN		
+1	1	3	2	on his favorite lake 	0	NaN		
+1	1	3	3	and catching very little	1	1	He was not catching anything	
+1	1	3	4	Finally, he gave up	0	NaN		
+1	1	3	5	and walked back along the shore to his fishing shack	0	NaN		
+1	1	3	6	When he got close to the front door, he saw it was open.	0	NaN		
+1	1	3	7	Being of a suspicious nature, he walked to the door quietly and looked inside	1	2	he saw something suspicious going on in his house	
+1	1	3	8	There was a big black bear	0	NaN		
+1	1	3	9	It was just pulling the cork out of his molasses jug with its teeth	0	NaN		
+1	1	3	10	The molasses spilled all over the floor	0	NaN		
+1	1	3	11	and the bear rubbed his paw in it, smearing it all over	1	3	smears honey all over his paws	
+1	1	3	12	When the old man saw the bear, he screamed out loud causing the bear the startle and run to the lake shore	0	NaN		
+1	1	3	13	Standing on its hind legs	0	NaN		
+1	1	3	14	it held up the paw full of molasses	1	4	waves his paws in the air	
+1	1	3	15	Soon all the flies and bugs and mosquitoes were swarming	0	NaN		
+1	1	3	16	all over the sticky sweet paw	0	NaN		
+1	1	3	17	Then the bear waded into the water	1	6	bear goes to the river	
+1	1	3	18	with his sticky paw full of bugs	1	5	bugs get caught in them	
+1	1	3	19	It held the paw out over the water	1	7	puts his paw near the water	
+1	1	3	20	Suddenly, a big trout came jumping out of the water trying to get to the flies	1	8	a trout jumps in to eat the bugs	
+1	1	3	21	The bear gave it a swat and it flew to the shore and flopped there	0	NaN		
+1	1	3	22	Then another fish jumped into the air after the flies, followed swiftly by another	0	NaN		
+1	1	3	23	Every time a fish jumped after his paw, the bear cuffed it ashore	1	9	The bear then cuffs lots of fish to the side of the river	
+1	1	3	24	Soon it had a large pile	0	NaN		
+1	1	3	25	The old man had caught nothing	0	NaN		
+1	1	3	26	He watched that bear eat half a dozen trout	0	NaN		
+1	1	3	27	his stomach rumbling	0	NaN		
+1	1	3	28	All he had for dinner was some bread and what was left of the molasses	0	NaN		
+1	1	3	29	Finally the bear paused in his eating	0	NaN		
+1	1	3	30	and looked over to the bushes where the old man was hidden	1	10	The man is watching from behind a bush	
+1	1	3	31	The bear stood up and laid the remaining fish in a row	0	NaN		
+1	1	3	32	Then it walked away up the shore	0	NaN		
+1	1	3	33	The old man crept out of the bushes and down to the shore	0	NaN		
+1	1	3	34	Sure enough, the bear had left six large trout for him	1	11	leaves six large trout for the fisherman	Changed 6 to six
+1	1	3	35	He looked over at the bear	0	NaN		
+1	1	3	36	It was standing at the edge of the wood watching	0	NaN		
+1	1	3	37	"Thanks a lot," the old man called to the bear	0	NaN		
+1	1	3	38	The bear waved the now-clean paw at the old man	0	NaN		
+1	1	3	39	and disappeared into the thicket	0	NaN		
+1	1	3	40	"Well," said the old man, "That's the first time a bear has ever paid me for my molasses."	0	NaN		
+1	1	3	41	The old man never hunted bears again	1	12	says he will never hunt bears again	
+1	2	1	1	I was shopping at my local supermarket	1	1	I was shopping at my local supermarket 	
+1	2	1	2	as I normally have for years.	1	2	like I’ve done for years	
+1	2	1	3	One particular day, I had done about 2 weeks’ worth of shopping	0	NaN		
+1	2	1	4	and was headed toward the register to pay for my groceries.	1	3	I got up to the counter 	
+1	2	1	5	I reached into my back right pocket	1	4	reached my hand into my back right pocket	Changed reaches to reached
+1	2	1	6	to grab the money to pay	0	NaN		
+1	2	1	7	and noticed that there was no money in there.	1	5	There was nothing there	
+1	2	1	8	I started to get nervous.	0	NaN		
+1	2	1	9	I knew my pocket book was in the car 	1	7	I had taken out of my pocket book in the car	
+1	2	1	10	and I was sure I had put the money in my back right pocket.	0	NaN		
+1	2	1	11	I look at cashier with a confused look,	1	6	I gave the cashier a confused look	
+1	2	1	12	not knowing what to do.	0	NaN		
+1	2	1	13	There were people behind me on the line 	0	NaN		
+1	2	1	14	and I immediately thought about the money I left in the car	0	NaN		
+1	2	1	15	that was intended to pay rent this month.	1	8	That money was meant to be  for my rent that month	
+1	2	1	16	She told me to speak with the courtesy counter.	1	9	The cashier told me to go to the courtesy counter	
+1	2	1	17	I laughed and said,	1	10	I laughed and said	
+1	2	1	18	"But it was cash, no one would hand that in!"  	1	11	no one would turn in cash	
+1	2	1	19	I decided that there was no harm in checking 	1	13	and asked anyways	
+1	2	1	20	so I walked up to a woman behind the counter 	1	12	I went to the counter 	
+1	2	1	21	and said "I have to ask, did anyone turn in cash by any chance?"	0	NaN		
+1	2	1	22	She asked "How much?"  	1	14	The lady said “how much.” 	
+1	2	1	23	My face then lit up.	1	15	I immediately smiled with relief. 	
+1	2	1	24	"$200 	1	16	200	
+1	2	1	25	in the form of twenty dollar bills." I replied.	1	17	in twenties	changed 20s to twenties
+1	2	1	26	She said, "Actually, yes, someone did!"  	1	18	Yes as a matter of fact someone did	
+1	2	1	27	I was so surprised! 	0	NaN		
+1	2	1	28	"Who? I want to thank them."  	0	NaN		
+1	2	1	29	She points to a young girl 	0	NaN		Miscounted in orig data  and excluded
+1	2	1	30	about 10 years old 	1	19	ten year old 	
+1	2	1	31	and says, "She did." 	0	NaN		
+1	2	1	32	I walked over to the mom	1	20	I eagerly went over;her mom	
+1	2	1	33	and hugged her.	1	21	and hugged	
+1	2	1	34	She said, "It wasn't me, it was my daughter". 	1	23	The mom said it wasn’t me it was my daughter 	
+1	2	1	35	I was so happy, 	0	NaN		
+1	2	1	36	I was almost in tears. 	0	NaN		
+1	2	1	37	I decided in those moments to do my duty 	1	24	I knew from that moment forward I was do try to do as many acts of kindness 	
+1	2	1	38	to pay forward this act of kindness 	0	NaN		
+1	2	1	39	every opportunity I had.	1	25	as I possibly could	
+1	2	2	1	I was shopping at my local supermarket	1	1	I was shopping at my local supermarket 	
+1	2	2	2	as I normally have for years.	1	2	as I have done for years	
+1	2	2	3	One particular day, I had done about 2 weeks’ worth of shopping	1	3	On that particular day I had about two weeks worth of groceries in my cart. 	changed 2 to two
+1	2	2	4	and was headed toward the register to pay for my groceries.	1	4	I wait in line and get to get to the register. 	
+1	2	2	5	I reached into my back right pocket	1	5	As I am about to pay I reach into my back right pocket 	
+1	2	2	6	to grab the money to pay	1	6	to get the cash I had put there earlier	
+1	2	2	7	and noticed that there was no money in there.	1	7	My pocket was empty	
+1	2	2	8	I started to get nervous.	1	8	I then started to get nervous	
+1	2	2	9	I knew my pocket book was in the car 	0	NaN		
+1	2	2	10	and I was sure I had put the money in my back right pocket.	0	NaN		
+1	2	2	11	I look at cashier with a confused look,	1	9	I gave the cashier a confused look	
+1	2	2	12	not knowing what to do.	0	NaN		
+1	2	2	13	There were people behind me on the line 	0	NaN		
+1	2	2	14	and I immediately thought about the money I left in the car	0	NaN		
+1	2	2	15	that was intended to pay rent this month.	0	NaN		
+1	2	2	16	She told me to speak with the courtesy counter.	1	10	She told me to go ask the courtesy counter	
+1	2	2	17	I laughed and said,	1	11	I laugh and say 	
+1	2	2	18	"But it was cash, no one would hand that in!"  	1	12	“it was cash who would turn in cash?” 	
+1	2	2	19	I decided that there was no harm in checking 	1	13	I decide there's no harm in asking so I do so anyways	Changed theres to there's
+1	2	2	20	so I walked up to a woman behind the counter 	0	NaN		
+1	2	2	21	and said "I have to ask, did anyone turn in cash by any chance?"	1	14	I ask “by any chance has anyone turned in cash?”	
+1	2	2	22	She asked "How much?"  	1	17	“How much shes asks. I say	
+1	2	2	23	My face then lit up.	1	16	My face then lit up	
+1	2	2	24	"$200 	1	18	“200$ 	
+1	2	2	25	in the form of twenty dollar bills." I replied.	1	19	in twenties	changed 20s to twenties
+1	2	2	26	She said, "Actually, yes, someone did!"  	1	15	She replies “As a matter of fact yes someone has.”  	
+1	2	2	27	I was so surprised! 	0	NaN		
+1	2	2	28	"Who? I want to thank them."  	1	20	I ask who it was because I want to thank them	
+1	2	2	29	She points to a young girl 	0	NaN		
+1	2	2	30	about 10 years old 	1	21	a ten year old 	changed 10 to ten
+1	2	2	31	and says, "She did." 	0	NaN		
+1	2	2	32	I walked over to the mom	1	22	I eagerly walk over;the mother	
+1	2	2			1	24		
+1	2	2	33	and hugged her.	1	23	and hug	
+1	2	2	34	She said, "It wasn't me, it was my daughter". 	1	25	The mother says don’t hug me it was all my daughter thank her	
+1	2	2	35	I was so happy, 	0	NaN		
+1	2	2	36	I was almost in tears. 	0	NaN		
+1	2	2	37	I decided in those moments to do my duty 	0	NaN		
+1	2	2	38	to pay forward this act of kindness 	0	NaN		
+1	2	2	39	every opportunity I had.	1	26	as much as I can	
+1	2	3	1	I was shopping at my local supermarket	1	1	There was a girl grocery shopping;at her local grocery store	
+1	2	3	2	as I normally have for years.	0	NaN		
+1	2	3	3	One particular day, I had done about 2 weeks’ worth of shopping	1	2	She was getting two weeks worth of groceries 	changed 2 to two
+1	2	3	4	and was headed toward the register to pay for my groceries.	1	4	She got in line and when she got to the register	
+1	2	3	5	I reached into my back right pocket	0	NaN		
+1	2	3	6	to grab the money to pay	0	NaN		
+1	2	3	7	and noticed that there was no money in there.	1	5	and realized that she had lost her money	
+1	2	3	8	I started to get nervous.	0	NaN		
+1	2	3	9	I knew my pocket book was in the car 	0	NaN		Miscounted, better applied to idea unit 14
+1	2	3	10	and I was sure I had put the money in my back right pocket.	0	NaN		
+1	2	3	11	I look at cashier with a confused look,	0	NaN		
+1	2	3	12	not knowing what to do.	0	NaN		
+1	2	3	13	There were people behind me on the line 	0	NaN		
+1	2	3	14	and I immediately thought about the money I left in the car	1	6	The money in the car in her pocket book	
+1	2	3	15	that was intended to pay rent this month.	1	7	was for her rent	
+1	2	3	16	She told me to speak with the courtesy counter.	1	8	The cashier told her to check the courtesy counter	
+1	2	3	17	I laughed and said,	1	9	The girl laughed and said 	
+1	2	3	18	"But it was cash, no one would hand that in!"  	1	10	who would turn in cash	
+1	2	3	19	I decided that there was no harm in checking 	1	11	but checked anyways	
+1	2	3	20	so I walked up to a woman behind the counter 	1	12	The lady at the counter 	
+1	2	3	21	and said "I have to ask, did anyone turn in cash by any chance?"	0	NaN		
+1	2	3	22	She asked "How much?"  	1	14	how much did you lose	
+1	2	3	23	My face then lit up.	0	NaN		
+1	2	3	24	"$200 	1	15	The girl said $200	
+1	2	3	25	in the form of twenty dollar bills." I replied.	0	NaN		
+1	2	3	26	She said, "Actually, yes, someone did!"  	1	13	said actually yes someone did	
+1	2	3	27	I was so surprised! 	0	NaN		
+1	2	3	28	"Who? I want to thank them."  	0	NaN		
+1	2	3	29	She points to a young girl 	0	NaN		
+1	2	3	30	about 10 years old 	0	NaN		
+1	2	3	31	and says, "She did." 	0	NaN		
+1	2	3	32	I walked over to the mom	1	16	The girl went over to thank the women 	
+1	2	3	33	and hugged her.	0	NaN		
+1	2	3	34	She said, "It wasn't me, it was my daughter". 	1	17	she said it was actually her daughter	
+1	2	3	35	I was so happy, 	0	NaN		
+1	2	3	36	I was almost in tears. 	0	NaN		
+1	2	3	37	I decided in those moments to do my duty 	0	NaN		
+1	2	3	38	to pay forward this act of kindness 	0	NaN		
+1	2	3	39	every opportunity I had.	1	18	whenever she could	
+1	3	1	1	Larry Walters had a dream that he could fly.  	1	1	Larry Walters had a dream he could fly	
+1	3	1	2	The problem was that Larry's vision was poor, 	1	2	The problem was he had poor vision	
+1	3	1	3	and he was thus ill-suited to become a pilot. 	0	NaN		
+1	3	1	4	Most people, faced with similar limitations, might let go of such a dream.	1	3	Normally people with this condition give up on their dream	
+1	3	1	5	Larry Walters was not most people. 	1	4	Not larry walters	
+1	3	1	6	On a sunny summer day 	0	NaN		
+1	3	1	7	in 1982, 	0	NaN		
+1	3	1	8	in his modest backyard 	1	5	in his modest backyard 	
+1	3	1	9	in San Pedro, 	0	NaN		
+1	3	1	10	Larry boarded a makeshift aircraft 	0	NaN		
+1	3	1	11	comprising a lawn chair, 	1	7	a lawn chair 	
+1	3	1	12	a seat belt, 	0	NaN		
+1	3	1	13	and forty-odd weather balloons. 	1	6	He attaches forty balloons 	changed 40 to forty
+1	3	1	14	Armed with a pellet gun, 	0	NaN		
+1	3	1	15	a CB radio, 	1	8	complete with a CB radio 	
+1	3	1	16	and a cooler full of sandwiches, 	1	9	a picnic basket full of sandwiches	
+1	3	1	17	he released the line that tethered his craft 	0	NaN		
+1	3	1	18	to his Jeep, 	0	NaN		
+1	3	1	19	rose to a height of thirty feet or so, 	0	NaN		
+1	3	1	20	and had himself a little picnic. 	0	NaN		
+1	3	1	21	He planned to just shoot out a couple balloons and float gently back to earth, 	1	10	His plan is to go a few feet above ground and then shoot out the balloons to gently float back down to the ground	
+1	3	1	22	just as easy as could be.	0	NaN		
+1	3	1	23	But Larry, it would seem, was not so good with physics. 	1	11	It turns out Larry is not so good with physics	
+1	3	1	24	When he released the tether, his craft rose 	0	NaN		
+1	3	1	25	15,000 feet in the air. 	0	NaN		
+1	3	1	26	According to some reports, 	0	NaN		
+1	3	1	27	he didn't dare shoot out the balloons, 	0	NaN		
+1	3	1	28	for fear the chair would tip. 	0	NaN		
+1	3	1	29	Eventually, he drifted into the approach corridor of Long Beach airport, 	0	NaN		
+1	3	1	30	disrupting air traffic. 	1	12	He disrupts air traffic	
+1	3	1	31	Imagine for a moment what that must have looked like to the folks waiting for clearance to land: 	1	13	Image being on a plane and seeing 	
+1	3	1	32	a man in a lawn chair with a gun, 	1	14	a man in a lawn chair;with a shot gun	
+1	3	1	33	some three miles above the ground. 	1	15	three miles above the ground 	changed 3 to three
+1	3	1	34	He did finally touch down safely, 	0	NaN		
+1	3	1	35	though not before getting tangled in some power lines 	1	17	but not after being caught in a power line 	
+1	3	1	36	and knocking out power in the entire Long Beach area. 	0	NaN		
+1	3	1	37	It goes without saying that Larry, upon touchdown, was arrested. 	1	18	Needless to say he was arrested as soon as he landed	
+1	3	1	38	Seems the FAA took umbrage with his violation of restricted airspace.	0	NaN		
+1	3	1	39	But by the time they nabbed him, the story had spread, 	0	NaN		
+1	3	1	40	and a few crack reporters witnessed his arrest. 	0	NaN		
+1	3	1	41	One of those reporters asked why he'd done it. 	0	NaN		
+1	3	1	42	Larry's response? 	0	NaN		
+1	3	1	43	"A man can't just sit around."	1	19	a man cant just sit around	Not counted in orig data counted here
+1	3	2	1	Larry Walters had a dream that he could fly.  	1	1	Larry Walters had a dream he could fly	
+1	3	2	2	The problem was that Larry's vision was poor, 	1	2	The problem was he had poor eyesight	
+1	3	2	3	and he was thus ill-suited to become a pilot. 	1	3	Being illsuited to be a pilot 	
+1	3	2	4	Most people, faced with similar limitations, might let go of such a dream.	1	4	most people would give up that dream	
+1	3	2	5	Larry Walters was not most people. 	1	5	Not larry however	
+1	3	2	6	On a sunny summer day 	0	NaN		
+1	3	2	7	in 1982, 	0	NaN		
+1	3	2	8	in his modest backyard 	0	NaN		
+1	3	2	9	in San Pedro, 	1	6	in San Pedro 	
+1	3	2	10	Larry boarded a makeshift aircraft 	1	7	Larry decided to make a makeshift air craft	
+1	3	2	11	comprising a lawn chair, 	1	9	tied to a lawn chair	
+1	3	2	12	a seat belt, 	0	NaN		
+1	3	2	13	and forty-odd weather balloons. 	1	8	forty odd weather balloons 	changed 40 to forty
+1	3	2	14	Armed with a pellet gun, 	1	12	a pellet gun	
+1	3	2	15	a CB radio, 	1	10	a CB radio	
+1	3	2	16	and a cooler full of sandwiches, 	1	11	a cooler full of sandwiches 	
+1	3	2	17	he released the line that tethered his craft 	1	13	He released the tether holding his craft 	
+1	3	2	18	to his Jeep, 	1	14	to his jeep 	
+1	3	2	19	rose to a height of thirty feet or so, 	1	15	drifted thirty feet into the air	changed 30 to thirty
+1	3	2	20	and had himself a little picnic. 	0	NaN		
+1	3	2	21	He planned to just shoot out a couple balloons and float gently back to earth, 	1	16	His plan was to shoot out some balloons and gently drift back to earth	
+1	3	2	22	just as easy as could be.	0	NaN		
+1	3	2	23	But Larry, it would seem, was not so good with physics. 	1	17	 It turns out larry isn’t so good with physics	
+1	3	2	24	When he released the tether, his craft rose 	0	NaN		
+1	3	2	25	15,000 feet in the air. 	1	18	He drifts some 15000 feet into the air	
+1	3	2	26	According to some reports, 	0	NaN		
+1	3	2	27	he didn't dare shoot out the balloons, 	0	NaN		
+1	3	2	28	for fear the chair would tip. 	0	NaN		
+1	3	2	29	Eventually, he drifted into the approach corridor of Long Beach airport, 	0	NaN		
+1	3	2	30	disrupting air traffic. 	1	19	disrupted air traffic	
+1	3	2	31	Imagine for a moment what that must have looked like to the folks waiting for clearance to land: 	1	20	Imagine what a sight that would have been 	changed side to sight
+1	3	2	32	a man in a lawn chair with a gun, 	1	21	a man with a shot gun in a lawn chair 	
+1	3	2	33	some three miles above the ground. 	1	22	over three miles in the air	changed 3 to three
+1	3	2	34	He did finally touch down safely, 	1	23	Eventually larry safely landed 	
+1	3	2	35	though not before getting tangled in some power lines 	1	24	but not before getting tangled in some power lines 	
+1	3	2	36	and knocking out power in the entire Long Beach area. 	1	25	causing a power outage to the entire Long Beach area	
+1	3	2	37	It goes without saying that Larry, upon touchdown, was arrested. 	1	26	Needless to say the police arrested him on sight	
+1	3	2	38	Seems the FAA took umbrage with his violation of restricted airspace.	1	27	Apparently the FAA considered his act an umbrige of air space	changed umbrige to umbridge
+1	3	2	39	But by the time they nabbed him, the story had spread, 	0	NaN		
+1	3	2	40	and a few crack reporters witnessed his arrest. 	0	NaN		
+1	3	2	41	One of those reporters asked why he'd done it. 	0	NaN		
+1	3	2	42	Larry's response? 	0	NaN		
+1	3	2	43	"A man can't just sit around."	0	NaN		
+1	3	3	1	Larry Walters had a dream that he could fly.  	0	NaN		
+1	3	3	2	The problem was that Larry's vision was poor, 	1	1	but had really bad eyesight	
+1	3	3	3	and he was thus ill-suited to become a pilot. 	0	NaN		
+1	3	3	4	Most people, faced with similar limitations, might let go of such a dream.	0	NaN		
+1	3	3	5	Larry Walters was not most people. 	0	NaN		
+1	3	3	6	On a sunny summer day 	0	NaN		
+1	3	3	7	in 1982, 	0	NaN		
+1	3	3	8	in his modest backyard 	0	NaN		
+1	3	3	9	in San Pedro, 	0	NaN		
+1	3	3	10	Larry boarded a makeshift aircraft 	1	2	make a makeshift aircraft	
+1	3	3	11	comprising a lawn chair, 	1	4	lawn chair	
+1	3	3	12	a seat belt, 	0	NaN		
+1	3	3	13	and forty-odd weather balloons. 	1	5	forty weather balloons	changed 40 to forty
+1	3	3	14	Armed with a pellet gun, 	0	NaN		
+1	3	3	15	a CB radio, 	1	3	a radio	
+1	3	3	16	and a cooler full of sandwiches, 	0	NaN		
+1	3	3	17	he released the line that tethered his craft 	0	NaN		
+1	3	3	18	to his Jeep, 	0	NaN		
+1	3	3	19	rose to a height of thirty feet or so, 	0	NaN		
+1	3	3	20	and had himself a little picnic. 	0	NaN		
+1	3	3	21	He planned to just shoot out a couple balloons and float gently back to earth, 	1	6	then use his shot gun to slowly take down balloons and drift safely back to earth	
+1	3	3	22	just as easy as could be.	0	NaN		
+1	3	3	23	But Larry, it would seem, was not so good with physics. 	1	7	Instead he wasn’t good at physics 	
+1	3	3	24	When he released the tether, his craft rose 	0	NaN		
+1	3	3	25	15,000 feet in the air. 	0	NaN		
+1	3	3	26	According to some reports, 	0	NaN		
+1	3	3	27	he didn't dare shoot out the balloons, 	1	13	He was afraid to shoot out the balloons 	
+1	3	3	28	for fear the chair would tip. 	1	14	because he thought the lawn chair would tip	
+1	3	3	29	Eventually, he drifted into the approach corridor of Long Beach airport, 	0	NaN		
+1	3	3	30	disrupting air traffic. 	1	8	caused air traffic	
+1	3	3	31	Imagine for a moment what that must have looked like to the folks waiting for clearance to land: 	1	9	Imagine seeing;while you’re inside an airplane	
+1	3	3	32	a man in a lawn chair with a gun, 	1	10	a man sitting on a lawn chair with a shotgun 	not counted in orig data counted here
+1	3	3	33	some three miles above the ground. 	0	NaN		
+1	3	3	34	He did finally touch down safely, 	0	NaN		
+1	3	3	35	though not before getting tangled in some power lines 	1	12	got caught in a cable wire	
+1	3	3	36	and knocking out power in the entire Long Beach area. 	0	NaN		
+1	3	3	37	It goes without saying that Larry, upon touchdown, was arrested. 	1	15	Needless to say he was arrested on the spot	
+1	3	3	38	Seems the FAA took umbrage with his violation of restricted airspace.	0	NaN		
+1	3	3	39	But by the time they nabbed him, the story had spread, 	0	NaN		
+1	3	3	40	and a few crack reporters witnessed his arrest. 	0	NaN		
+1	3	3	41	One of those reporters asked why he'd done it. 	1	16	When reporters asked him why he did it 	
+1	3	3	42	Larry's response? 	0	NaN		
+1	3	3	43	"A man can't just sit around."	1	17	he said a man can't just sit around	changed cant to can't
+1	4	1	1	At breakfast, 	1	1	At breakfast 	
+1	4	1	2	my cat Susie	1	2	my cat Susie 	Changed suzie to susie
+1	4	1	3	sits on the deck of the pool	1	3	sits on the deck of the pool. 	
+1	4	1	4	outside the glass doors to the kitchen.  	0	NaN		
+1	4	1	5	Bang, bang.  	1	4	Bang- bang 	
+1	4	1	6	She hits the door with her paw.	0	NaN		
+1	4	1	7	This means “Ryan, feed me” in Susie’s special language.  	0	NaN		
+1	4	1	8	I get up from my chair and feed her. 	0	NaN		
+1	4	1	9	I know this, because I know everything about her	1	5	I would like to think I know everything about Susie. 	
+1	4	1	10	or at least I think I do. 	0	NaN		
+1	4	1	11	For the life of me, I do not know where Susie goes at noon.	0	NaN		
+1	4	1	12	At eleven-thirty Saturday morning, 	0	NaN		
+1	4	1	13	I notice Susie is not at home. 	0	NaN		
+1	4	1	14	Where did she go? 	0	NaN		
+1	4	1	15	Then I spot her trotting down the street towards town. 	0	NaN		
+1	4	1	16	I quickly follow. 	0	NaN		
+1	4	1	17	Susie has turned the corner and is walking down the block towards the traffic light. 	0	NaN		
+1	4	1	18	She passes the corner store and walks behind the small strip mall, 	0	NaN		
+1	4	1	19	I start thinking that I know where she is going.	1	6	I think I know where she is going. 	
+1	4	1	20	Mr. Johnston’s Fresh Fish Market is in a small, white building at the back of the strip mall.  	0	NaN		
+1	4	1	21	I see that Susie has joined several of her cat colleagues.  	0	NaN		
+1	4	1	22	Mr. Johnston comes out of the back door, carrying several black trash bags.  	0	NaN		
+1	4	1	23	He piles them into the dumpster, and then pulls out a small, clear plastic bag full of fish heads.  	0	NaN		
+1	4	1	24	He scatters these on the ground and watches the cats pounce on them.  	1	7	the guy put the remains of the fish In the trash and throws the heads on the ground for the cats	
+1	4	1	25	He spies me lurking by the corner of the strip mall.	0	NaN		
+1	4	1	26	“Hi Ryan,” he calls in his thick Brooklyn accent. 	0	NaN		
+1	4	1	27	“So this is where Susie comes at noon,” I say, walking towards him. 	0	NaN		
+1	4	1	28	Mr. Johnston laughs.	0	NaN		
+1	4	1	29	“Yep.  All the cats come to visit me at noon.  	0	NaN		
+1	4	1	30	They used to tear up my garbage, 	0	NaN		
+1	4	1	31	so now I just put the fish heads on the ground for them. 	0	NaN		
+1	4	1	32	Is that your cat?” 	1	8	Which one is yours he asks 	
+1	4	1	33	Susie ignores me.  	1	10	Suzie pays no attention to me 	
+1	4	1	34	The fish head is more interesting at the moment. 	1	11	she is busy with the fish head at the moment. 	
+1	4	1	35	“Yes, that’s my Susie,” I say. 	0	NaN		
+1	4	1	36	“She’s here every day,” says Mr. Johnston 	1	9	Yup she is here everyday he says	
+1	4	1	37	before walking back inside the store. 	0	NaN		
+1	4	1	38	I wait until Susie finishes her fish head, 	0	NaN		
+1	4	1	39	and we walk home together.	1	12	we walk home together	
+1	4	2	1	At breakfast, 	1	1	At  breakfast 	
+1	4	2	2	my cat Susie	1	2	my cat Susie 	
+1	4	2	3	sits on the deck of the pool	0	NaN		
+1	4	2	4	outside the glass doors to the kitchen.  	1	5	the sliding glass door that leads into the kitchen	
+1	4	2	5	Bang, bang.  	1	3	Bang bang 	
+1	4	2	6	She hits the door with her paw.	1	4	is the sound of her paws hitting 	
+1	4	2	7	This means “Ryan, feed me” in Susie’s special language.  	0	NaN		
+1	4	2	8	I get up from my chair and feed her. 	0	NaN		
+1	4	2	9	I know this, because I know everything about her	1	6	I like to think I know everything about Susie	
+1	4	2	10	or at least I think I do. 	0	NaN		
+1	4	2	11	For the life of me, I do not know where Susie goes at noon.	0	NaN		
+1	4	2	12	At eleven-thirty Saturday morning, 	1	7	On Saturday at eleven-thirty	changed 1130 to eleven-thirty
+1	4	2	13	I notice Susie is not at home. 	1	8	I notice Susie is gone	
+1	4	2	14	Where did she go? 	0	NaN		
+1	4	2	15	Then I spot her trotting down the street towards town. 	0	NaN		
+1	4	2	16	I quickly follow. 	1	9	I quickly follow	
+1	4	2	17	Susie has turned the corner and is walking down the block towards the traffic light. 	0	NaN		
+1	4	2	18	She passes the corner store and walks behind the small strip mall, 	1	10	I follow her down the road towards the traffic light and go past the corner store and head towards the strip mall	
+1	4	2	19	I start thinking that I know where she is going.	1	11	I start to think I know where she is going. 	
+1	4	2	20	Mr. Johnston’s Fresh Fish Market is in a small, white building at the back of the strip mall.  	1	12	Mr. Johnson has a fish market at the end of the mall. 	
+1	4	2	21	I see that Susie has joined several of her cat colleagues.  	1	14	I see Susie has been joined by her cat colleagues	
+1	4	2	22	Mr. Johnston comes out of the back door, carrying several black trash bags.  	0	NaN		
+1	4	2	23	He piles them into the dumpster, and then pulls out a small, clear plastic bag full of fish heads.  	1	13	As we get close I watch him put two large trash bags into the dumpster and pull out a small clear bag full of fish heads	
+1	4	2	24	He scatters these on the ground and watches the cats pounce on them.  	0	NaN		
+1	4	2	25	He spies me lurking by the corner of the strip mall.	1	15	Mr Johnson sees me 	
+1	4	2	26	“Hi Ryan,” he calls in his thick Brooklyn accent. 	0	NaN		
+1	4	2	27	“So this is where Susie comes at noon,” I say, walking towards him. 	0	NaN		
+1	4	2	28	Mr. Johnston laughs.	0	NaN		
+1	4	2	29	“Yep.  All the cats come to visit me at noon.  	0	NaN		
+1	4	2	30	They used to tear up my garbage, 	0	NaN		
+1	4	2	31	so now I just put the fish heads on the ground for them. 	0	NaN		
+1	4	2	32	Is that your cat?” 	0	NaN		
+1	4	2	33	Susie ignores me.  	0	NaN		
+1	4	2	34	The fish head is more interesting at the moment. 	0	NaN		
+1	4	2	35	“Yes, that’s my Susie,” I say. 	0	NaN		
+1	4	2	36	“She’s here every day,” says Mr. Johnston 	0	NaN		
+1	4	2	37	before walking back inside the store. 	0	NaN		
+1	4	2	38	I wait until Susie finishes her fish head, 	0	NaN		
+1	4	2	39	and we walk home together.	0	NaN		
+1	4	3	1	At breakfast, 	1	3	for breakfast 	
+1	4	3	2	my cat Susie	1	1	a cat named Susie 	
+1	4	3	3	sits on the deck of the pool	0	NaN		
+1	4	3	4	outside the glass doors to the kitchen.  	0	NaN		Miscounted in orig data excluded here
+1	4	3	5	Bang, bang.  	0	NaN		
+1	4	3	6	She hits the door with her paw.	1	2	she pawed at the glass door to be let in 	
+1	4	3	7	This means “Ryan, feed me” in Susie’s special language.  	0	NaN		
+1	4	3	8	I get up from my chair and feed her. 	0	NaN		
+1	4	3	9	I know this, because I know everything about her	1	4	The guy knew everything about Susie 	
+1	4	3	10	or at least I think I do. 	0	NaN		
+1	4	3	11	For the life of me, I do not know where Susie goes at noon.	0	NaN		
+1	4	3	12	At eleven-thirty Saturday morning, 	0	NaN		
+1	4	3	13	I notice Susie is not at home. 	1	5	 One Saturday he noticed Susie was missing 	
+1	4	3	14	Where did she go? 	0	NaN		
+1	4	3	15	Then I spot her trotting down the street towards town. 	0	NaN		
+1	4	3	16	I quickly follow. 	0	NaN		
+1	4	3	17	Susie has turned the corner and is walking down the block towards the traffic light. 	0	NaN		
+1	4	3	18	She passes the corner store and walks behind the small strip mall, 	0	NaN		
+1	4	3	19	I start thinking that I know where she is going.	1	6	He started to realize where she was going	
+1	4	3	20	Mr. Johnston’s Fresh Fish Market is in a small, white building at the back of the strip mall.  	0	NaN		
+1	4	3	21	I see that Susie has joined several of her cat colleagues.  	1	7	Susie was joined by her cat colleagues. 	
+1	4	3	22	Mr. Johnston comes out of the back door, carrying several black trash bags.  	0	NaN		
+1	4	3	23	He piles them into the dumpster, and then pulls out a small, clear plastic bag full of fish heads.  	1	8	the fish-man was discarding of the excess fish. He pulled out a clear bag full of fish heads 	
+1	4	3	24	He scatters these on the ground and watches the cats pounce on them.  	1	9	through them down to the cats	
+1	4	3	25	He spies me lurking by the corner of the strip mall.	1	10	The man saw me watching the cats 	
+1	4	3	26	“Hi Ryan,” he calls in his thick Brooklyn accent. 	0	NaN		
+1	4	3	27	“So this is where Susie comes at noon,” I say, walking towards him. 	0	NaN		
+1	4	3	28	Mr. Johnston laughs.	0	NaN		
+1	4	3	29	“Yep.  All the cats come to visit me at noon.  	0	NaN		
+1	4	3	30	They used to tear up my garbage, 	0	NaN		
+1	4	3	31	so now I just put the fish heads on the ground for them. 	0	NaN		
+1	4	3	32	Is that your cat?” 	1	11	“Which ones yours?” 	
+1	4	3	33	Susie ignores me.  	1	13	Susie was too busy	
+1	4	3	34	The fish head is more interesting at the moment. 	1	14	with the fish head 	
+1	4	3	35	“Yes, that’s my Susie,” I say. 	0	NaN		
+1	4	3	36	“She’s here every day,” says Mr. Johnston 	1	12	the man said yup she is here everyday. 	
+1	4	3	37	before walking back inside the store. 	0	NaN		
+1	4	3	38	I wait until Susie finishes her fish head, 	0	NaN		
+1	4	3	39	and we walk home together.	1	16	we walked home together	
+1	5	1	1	You can say all you want about the thick fogs in England, 	1	1	You can say all you want about London Fog 	
+1	5	1	2	but I'm telling you now, 	0	NaN		
+1	5	1	3	sure as I'm standing here, 	0	NaN		
+1	5	1	4	that England's fogs don't hold a candle to the thick fogs that roll in 	1	2	but it doesn’t hold a candle to the fog 	
+1	5	1	5	over the Bay of Fundy 	1	4	in the bay of fundy. 	
+1	5	1	6	here in Maine.	1	3	here in Maine 	
+1	5	1	7	The fog here gets so thick you can drive a nail into it 	1	5	You can nail something to it and it will stay 	
+1	5	1	8	and hang your hat on it. 	0	NaN		
+1	5	1	9	It's the honest truth. 	1	6	that’s the honest truth.	
+1	5	1	10	My neighbor Dave 	0	NaN		
+1	5	1	11	works a fishing boat, 	1	7	is a fisherman 	
+1	5	1	12	but he can't do any work when a Maine fog comes rolling into the bay. 	1	8	He knows when the fog comes in he can't work 	
+1	5	1	13	He always saves up his chores for a foggy day. 	1	9	so he saves all his chores for that day	
+1	5	1	14	One day, the fog came rolling in overnight,	1	10	One night the fog came in overnight 	
+1	5	1	15	and Dave knew there was no way he could go fishing that day. 	0	NaN		
+1	5	1	16	He instead decided that his roof needs shingling, 	1	11	so he thought perfect I can shingle the roof. 	
+1	5	1	17	so he got started at the shingling right after breakfast	0	NaN		
+1	5	1	18	and didn't come down until dinner. 	0	NaN		
+1	5	1	19	"Sarah, we sure do have a mighty long house," he told his wife 	0	NaN		
+1	5	1	20	over supper. 	0	NaN		
+1	5	1	21	"It took me all day to shingle." 	0	NaN		
+1	5	1	22	Well, Sarah knew right enough that they lived in a small house, 	1	12	His wife knew they had a small roof 	
+1	5	1	23	so she went outside to take a look. 	1	13	went outside to see what he had done. 	
+1	5	1	24	To her surprise, 	0	NaN		
+1	5	1	25	she discovered that Dave had shingled right past the edge of the roof 	1	14	He had nailed shingles all the way past the edge of the roof 	
+1	5	1	26	and out onto the fog!	1	15	and into the fog!	
+1	5	2	1	You can say all you want about the thick fogs in England, 	1	1	You can say all you want about the thick fogs in London 	
+1	5	2	2	but I'm telling you now, 	1	2	but i'm telling you 	
+1	5	2	3	sure as I'm standing here, 	1	3	as sure as i'm standing here 	
+1	5	2	4	that England's fogs don't hold a candle to the thick fogs that roll in 	1	4	that they don’t hold a candle to the thick fogs that come rolling in 	
+1	5	2	5	over the Bay of Fundy 	1	5	over the Bay of fundy 	
+1	5	2	6	here in Maine.	1	6	here in maine	
+1	5	2	7	The fog here gets so thick you can drive a nail into it 	1	7	You can hammer a nail 	
+1	5	2	8	and hang your hat on it. 	1	8	hang a hat on it	
+1	5	2	9	It's the honest truth. 	1	9	it’s the honest truth	
+1	5	2	10	My neighbor Dave 	0	NaN		
+1	5	2	11	works a fishing boat, 	1	10	works on a fishing boat 	
+1	5	2	12	but he can't do any work when a Maine fog comes rolling into the bay. 	1	11	He knows when a maine fog comes he will not be doing any work 	
+1	5	2	13	He always saves up his chores for a foggy day. 	1	12	so he always saves up all his chores for that day	
+1	5	2	14	One day, the fog came rolling in overnight,	1	13	Overnight a maine fog came in 	
+1	5	2	15	and Dave knew there was no way he could go fishing that day. 	1	14	dave knew he wouldn’t be working. 	
+1	5	2	16	He instead decided that his roof needs shingling, 	1	15	He decided his roof needed shingling. 	
+1	5	2	17	so he got started at the shingling right after breakfast	1	16	He went up there straight after breakfast 	
+1	5	2	18	and didn't come down until dinner. 	0	NaN		
+1	5	2	19	"Sarah, we sure do have a mighty long house," he told his wife 	1	17	That night he told his wife sarah “wow we have such a long roof.” 	
+1	5	2	20	over supper. 	0	NaN		
+1	5	2	21	"It took me all day to shingle." 	0	NaN		
+1	5	2	22	Well, Sarah knew right enough that they lived in a small house, 	1	18	Sarah knew that they had a small roof 	
+1	5	2	23	so she went outside to take a look. 	1	19	went outside to check 	
+1	5	2	24	To her surprise, 	0	NaN		
+1	5	2	25	she discovered that Dave had shingled right past the edge of the roof 	1	20	sure enough he had shingled past the roof 	
+1	5	2	26	and out onto the fog!	1	21	straight into the fog.	
+1	5	3	1	You can say all you want about the thick fogs in England, 	1	1	The London fog 	
+1	5	3	2	but I'm telling you now, 	0	NaN		
+1	5	3	3	sure as I'm standing here, 	0	NaN		
+1	5	3	4	that England's fogs don't hold a candle to the thick fogs that roll in 	1	2	doesn’t hold a candle to the fog that comes 	
+1	5	3	5	over the Bay of Fundy 	1	3	over the Bay of fundy 	
+1	5	3	6	here in Maine.	1	4	in maine	
+1	5	3	7	The fog here gets so thick you can drive a nail into it 	1	5	It is so thick you could hammer a nail in it 	
+1	5	3	8	and hang your hat on it. 	1	6	a hang a hat on it. 	
+1	5	3	9	It's the honest truth. 	0	NaN		
+1	5	3	10	My neighbor Dave 	0	NaN		
+1	5	3	11	works a fishing boat, 	1	7	There was a fisherman 	
+1	5	3	12	but he can't do any work when a Maine fog comes rolling into the bay. 	1	8	When the fog was coming he knew he couldn’t fish 	
+1	5	3	13	He always saves up his chores for a foggy day. 	1	9	so he saved all his chores for that day. 	
+1	5	3	14	One day, the fog came rolling in overnight,	0	NaN		
+1	5	3	15	and Dave knew there was no way he could go fishing that day. 	0	NaN		
+1	5	3	16	He instead decided that his roof needs shingling, 	1	10	he decided to redo the roof. 	
+1	5	3	17	so he got started at the shingling right after breakfast	1	11	He went out after breakfast 	
+1	5	3	18	and didn't come down until dinner. 	1	12	stayed long after dinner	
+1	5	3	19	"Sarah, we sure do have a mighty long house," he told his wife 	0	NaN		
+1	5	3	20	over supper. 	0	NaN		
+1	5	3	21	"It took me all day to shingle." 	0	NaN		
+1	5	3	22	Well, Sarah knew right enough that they lived in a small house, 	1	13	She knew that they had a small roof 	
+1	5	3	23	so she went outside to take a look. 	1	14	went outside to check	
+1	5	3	24	To her surprise, 	0	NaN		
+1	5	3	25	she discovered that Dave had shingled right past the edge of the roof 	0	NaN		
+1	5	3	26	and out onto the fog!	1	15	all the way into the fog!!	
+1	6	1	1	It was a hot, sunny day 	1	1	It was a hot sunny day 	
+1	6	1	2	and Kaylie and Rachel 	1	2	and kaylie and Rachel 	
+1	6	1	3	decided to take advantage of their off day 	1	3	decided to take advantage of their day off 	
+1	6	1	4	and take a trip to the beach. 	1	4	by going to the beach. 	
+1	6	1	5	The sun was an optimistic yellow pellet, 	1	5	The sun was a;optimistic pellet 	
+1	6	1	6	blistering in the sky as they were on their way 	1	6	blistering hot;in the sky	
+1	6	1	7	to Old Orchard Beach 	0	NaN		
+1	6	1	8	in Maine. 	1	9	in maine	
+1	6	1	9	Once arriving and walking from the parking lot, 	0	NaN		
+1	6	1	10	they spotted the crystal clear water 	0	NaN		
+1	6	1	11	that faded into a deep blue on the horizon.	0	NaN		
+1	6	1	12	The beach was swarming with people. 	1	10	The beach was swarming with people	
+1	6	1	13	Some on yellow, orange, white, and pink towels, 	0	NaN		
+1	6	1	14	while others were seen stretched out on lounge chairs 	0	NaN		
+1	6	1	15	with broad-brimmed hats 	0	NaN		
+1	6	1	16	shading their eyes from the rays of the sun. 	0	NaN		
+1	6	1	17	Children were decorating sandcastles with smooth, round seashells, 	0	NaN		
+1	6	1	18	and Kaylie decided to stretch out on her towel 	1	11	Kaylie decided to go lie down on a towel 	
+1	6	1	19	in the sand for a quick nap 	0	NaN		
+1	6	1	20	while Rachel went to cool off in the ocean. 	1	12	while Rachel decided go cool off in the water. 	
+1	6	1	21	The sun shined on the water, 	0	NaN		
+1	6	1	22	causing it to look like a million little crystals. 	0	NaN		
+1	6	1	23	Just before making it to the surf, 	0	NaN		
+1	6	1	24	Rachel saw a little girl with freckles 	0	NaN		
+1	6	1	25	in a light purple bathing suit 	0	NaN		
+1	6	1	26	and little yellow floaties on her arms. 	0	NaN		
+1	6	1	27	The girl darted in front of Rachel, 	1	13	Two children went by her a little girl 	
+1	6	1	28	closely followed by a boy 	0	NaN		
+1	6	1	29	in green swimming shorts. 	1	14	a boy in a green bathing suits	
+1	6	1	30	Rachel smiled as she reminisced on memories of beach days 	0	NaN		
+1	6	1	31	with her brothers. 	0	NaN		
+1	6	1	32	After spending some time in the water, 	0	NaN		
+1	6	1	33	she looked up and	0	NaN		
+1	6	1	34	saw four teenagers 	0	NaN		
+1	6	1	35	flying colorful paragliders. 	0	NaN		
+1	6	1	36	She thought to herself that the day was truly perfect, 	1	15	This really is a perfect day she thought	
+1	6	1	37	and all anxieties from her daily life were absent for a while. 	1	16	All her anxieties washed away and she felt peaceful. 	
+1	6	1	38	She closed her eyes for a few seconds to savor the moment 	0	NaN		
+1	6	1	39	before going to lie down next to Kaylie 	1	17	She then went to go lie down with kaylie 	
+1	6	1	40	in the warm sand.	0	NaN		
+1	6	2	1	It was a hot, sunny day 	1	1	It was a hot sunny day 	
+1	6	2	2	and Kaylie and Rachel 	1	2	and Rachel and kaylie 	
+1	6	2	3	decided to take advantage of their off day 	1	3	decided to take advantage of their day off from work	
+1	6	2	4	and take a trip to the beach. 	1	4	They decided to drive down to 	
+1	6	2	5	The sun was an optimistic yellow pellet, 	1	7	The sun was a;optimistic pellet 	
+1	6	2	6	blistering in the sky as they were on their way 	1	8;10	blistering;in the sky	
+1	6	2	7	to Old Orchard Beach 	1	5	old orchard beach 	
+1	6	2	8	in Maine. 	1	6	in maine	
+1	6	2	9	Once arriving and walking from the parking lot, 	0	NaN		
+1	6	2	10	they spotted the crystal clear water 	0	NaN		
+1	6	2	11	that faded into a deep blue on the horizon.	0	NaN		
+1	6	2	12	The beach was swarming with people. 	1	11	People swarmed everywhere	
+1	6	2	13	Some on yellow, orange, white, and pink towels, 	1	12	They laid on pink, yellow, orange and white towels 	
+1	6	2	14	while others were seen stretched out on lounge chairs 	1	13	while other laid on lawn chairs 	
+1	6	2	15	with broad-brimmed hats 	0	NaN		
+1	6	2	16	shading their eyes from the rays of the sun. 	1	14	and shielding them from the sun. 	
+1	6	2	17	Children were decorating sandcastles with smooth, round seashells, 	1	15	Children ran around making sand castle with smooth shells	
+1	6	2	18	and Kaylie decided to stretch out on her towel 	1	16	Kaylie went to lie down on a towel 	
+1	6	2	19	in the sand for a quick nap 	0	NaN		
+1	6	2	20	while Rachel went to cool off in the ocean. 	1	17	and Rachel went to cool off in the water	
+1	6	2	21	The sun shined on the water, 	1	18	The sun was shining on the water 	
+1	6	2	22	causing it to look like a million little crystals. 	0	NaN		
+1	6	2	23	Just before making it to the surf, 	0	NaN		
+1	6	2	24	Rachel saw a little girl with freckles 	0	NaN		
+1	6	2	25	in a light purple bathing suit 	1	20	in a little purple bathing suit 	
+1	6	2	26	and little yellow floaties on her arms. 	1	21	with yellow floaties	
+1	6	2	27	The girl darted in front of Rachel, 	1	19	A young girl ran past 	
+1	6	2	28	closely followed by a boy 	1	22	a boy was chasing her 	
+1	6	2	29	in green swimming shorts. 	1	23	in a green bathing suit	
+1	6	2	30	Rachel smiled as she reminisced on memories of beach days 	1	24	It reminded Rachel of the days when she used to go to the beach 	
+1	6	2	31	with her brothers. 	1	25	with her brothers	
+1	6	2	32	After spending some time in the water, 	0	NaN		
+1	6	2	33	she looked up and	0	NaN		
+1	6	2	34	saw four teenagers 	0	NaN		
+1	6	2	35	flying colorful paragliders. 	0	NaN		
+1	6	2	36	She thought to herself that the day was truly perfect, 	1	27	It really was a perfect day.	
+1	6	2	37	and all anxieties from her daily life were absent for a while. 	1	26	She smiled she was absent of all anxieties at least for a little while. 	
+1	6	2	38	She closed her eyes for a few seconds to savor the moment 	0	NaN		
+1	6	2	39	before going to lie down next to Kaylie 	0	NaN		
+1	6	2	40	in the warm sand.	0	NaN		
+1	6	3	1	It was a hot, sunny day 	0	NaN		
+1	6	3	2	and Kaylie and Rachel 	0	NaN		
+1	6	3	3	decided to take advantage of their off day 	1	1	had a day off work 	
+1	6	3	4	and take a trip to the beach. 	1	2	so they decided to go down to the beach 	
+1	6	3	5	The sun was an optimistic yellow pellet, 	0	NaN		
+1	6	3	6	blistering in the sky as they were on their way 	1	4	The sun was blistering yellow ball in the sky	
+1	6	3	7	to Old Orchard Beach 	0	NaN		
+1	6	3	8	in Maine. 	1	3	in Maine	
+1	6	3	9	Once arriving and walking from the parking lot, 	0	NaN		
+1	6	3	10	they spotted the crystal clear water 	0	NaN		
+1	6	3	11	that faded into a deep blue on the horizon.	0	NaN		
+1	6	3	12	The beach was swarming with people. 	1	5	There were people all around 	
+1	6	3	13	Some on yellow, orange, white, and pink towels, 	0	NaN		
+1	6	3	14	while others were seen stretched out on lounge chairs 	0	NaN		
+1	6	3	15	with broad-brimmed hats 	0	NaN		
+1	6	3	16	shading their eyes from the rays of the sun. 	0	NaN		
+1	6	3	17	Children were decorating sandcastles with smooth, round seashells, 	0	NaN		
+1	6	3	18	and Kaylie decided to stretch out on her towel 	0	NaN		
+1	6	3	19	in the sand for a quick nap 	0	NaN		
+1	6	3	20	while Rachel went to cool off in the ocean. 	1	6	Eventually Rachel decides to go down to the water to cool off. 	
+1	6	3	21	The sun shined on the water, 	0	NaN		
+1	6	3	22	causing it to look like a million little crystals. 	0	NaN		
+1	6	3	23	Just before making it to the surf, 	0	NaN		
+1	6	3	24	Rachel saw a little girl with freckles 	0	NaN		
+1	6	3	25	in a light purple bathing suit 	1	9	in a purple bathing suit	
+1	6	3	26	and little yellow floaties on her arms. 	1	8	with yellow floaties 	
+1	6	3	27	The girl darted in front of Rachel, 	0	NaN		
+1	6	3	28	closely followed by a boy 	1	7	She sees a little boy chasing a little girl around 	
+1	6	3	29	in green swimming shorts. 	0	NaN		
+1	6	3	30	Rachel smiled as she reminisced on memories of beach days 	0	NaN		
+1	6	3	31	with her brothers. 	1	10	and used to play with her brother	
+1	6	3	32	After spending some time in the water, 	0	NaN		
+1	6	3	33	she looked up and	0	NaN		
+1	6	3	34	saw four teenagers 	0	NaN		
+1	6	3	35	flying colorful paragliders. 	0	NaN		
+1	6	3	36	She thought to herself that the day was truly perfect, 	1	12	Rachel comments on how beautiful the day is 	
+1	6	3	37	and all anxieties from her daily life were absent for a while. 	1	13	and is purely relaxed for the first time in a while	
+1	6	3	38	She closed her eyes for a few seconds to savor the moment 	0	NaN		
+1	6	3	39	before going to lie down next to Kaylie 	1	11	After cooling off she goes back to lay out with her friend	
+1	6	3	40	in the warm sand.	0	NaN		
