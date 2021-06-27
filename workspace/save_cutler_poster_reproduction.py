@@ -1,5 +1,6 @@
 # %% [markdown]
 # # Cutler Poster Reproduction
+# Let's confirm that our pipeline is sound by reproducing the main analyses from the Cutler (2019) poster on this same dataset.
 
 # %% [markdown]
 # ## Dependencies
@@ -209,7 +210,6 @@ sns.lmplot(data=strengths_df.loc[strengths_df.time_test > 1],
     x="cosine_similarity", y="recall", palette="deep", hue='time_test', legend=False);
 plt.ylabel('probability recall');
 plt.legend(['immediate', 'delay'], title='time of test');
-plt.savefig('troublesome.pdf')
 
 # %% [markdown]
 # ## Semantic CRP
