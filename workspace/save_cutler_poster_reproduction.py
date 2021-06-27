@@ -1,6 +1,7 @@
 # %% [markdown]
 # # Cutler Poster Reproduction
 # Let's confirm that our pipeline is sound by reproducing the main analyses from the Cutler (2019) poster on this same dataset.
+# ISSUE: #3 does this do anything?
 
 # %% [markdown]
 # ## Dependencies
