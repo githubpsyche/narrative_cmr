@@ -173,6 +173,7 @@ for time_test in pd.unique(events.time_test):
 
         # add a further inner loop over cycles in story_name
         for cycle in experiences[story_name]:
+            breakpoint()
             model.experience([cycle])
 
             # perform the distance_rank analysis over the dataset using the matrix
