@@ -2,8 +2,6 @@
 # # Semantic CMR
 
 # %%
-# export
-# hide
 
 import numpy as np
 from numba import float64, int32, boolean
@@ -38,7 +36,6 @@ cmr_spec = [
 
 
 # %%
-# export
 
 @jitclass(cmr_spec)
 class SemanticCMR:
