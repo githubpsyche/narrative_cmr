@@ -13,6 +13,8 @@
 # %%
 from Landscape_Model import LandscapeRevised
 from sentence_transformers import SentenceTransformer, util
+import seaborn as sns
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import json
@@ -29,7 +31,7 @@ events = fr.merge_free_recall(
 # average_word_embeddings_glove.6B.300d
 # average_word_embeddings_glove.840B.300d
 # stsb-distilbert-base
-model = SentenceTransformer('paraphrase-MiniLM-L12-v2')
+model = SentenceTransformer('average_word_embeddings_glove.840B.300d')
 units = events.pivot_table(index=['story_name', 'input'], values='item', aggfunc='first').reset_index()
 connections = {}
 remove_stopwords = False
@@ -79,26 +81,28 @@ for time_test in pd.unique(events.time_test):
             'item_index', 1-model.connections).reset_index()
 
         distance_rank['story_name'] = story_name
-        if time_test == 1:
-            distance_rank['time_test'] = 1
-        elif time_test == 2:
-            distance_rank['time_test'] = 'immediate'
-        else:
-            distance_rank['time_test'] = 'delayed'
-
+        distance_rank['time_test'] = time_test
         distance_ranks.append(distance_rank)
         
 distance_rank = pd.concat(distance_ranks)
 distance_rank = distance_rank.loc[distance_rank.time_test != 1]
+distance_rank = distance_rank.pivot_table(index=['time_test', 'subject'], values='rank').reset_index()
 distance_rank.head()
 
 # %% [markdown]
 # **Note**: Some of these rank values are nan for a given subject and condition. This is because participants didn't recall anything during these particular trials. Does this affect downstream analyses? We'll find out with our successive analysis: a dotplot of semantic organization scores factored by time_test and subject.
 
 # %%
-import seaborn as sns
-import matplotlib.pyplot as plt
 
-sns.catplot(data=distance_rank, x="time_test", y="rank", hue="subject", jitter=False, palette='pastel', legend=False);
-plt.ylim([.2, 1.0])
-# %%
+sns.set(style='whitegrid')
+sns.lmplot(data=distance_rank, 
+    x="time_test", y="rank", palette="deep");
+plt.xticks([2, 3], ['immediate', 'delay'])
+plt.axhline(y=.5, color='r', label='chance')
+plt.xlim([1.5, 3.5])
+plt.ylim([.45, .65])
+plt.xlabel('time of test')
+plt.ylabel('organization score');
+
+# %% [markdown]
+# ## Model Simulation Configuration
