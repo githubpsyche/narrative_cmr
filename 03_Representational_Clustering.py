@@ -107,9 +107,79 @@ plt.ylabel('organization score');
 # %% [markdown]
 # ## Simulation Configuration
 # Let's demonstrate how to efficiently simulate the Landscape Model using the stimuli from our SBS dataset.
-# 
+#
 # DataFrame construction should look much like the above, except with an extra factor varied over: `simulation_step`. From there, I'll apply another `pivot_table`, this time generalizing over subjects (or perhaps letting seaborn do that for me with its confidence interval support). The objective is a lineplot relating `simulation_step` with mean organization score across subjects.
 #
 # But what about simulation configuration? The key thing to work through is how to operate the `cycles` argument of `LandscapeRevised.experience`. The important thing is that each entry of `cycles` selects the right entries of `self.activations` to update when I assign `self.max_activity` within `LandscapeRevised.update_activations`. This probably just requires a list of indices per entry, right? Do I already have code for that?
+
+# %% [markdown]
+# ### Cycle Extraction
+# Let's just directly get a list of cycles containing indices of relevant units.
+
+# %%
+experiences = {}
+
+cycle_table = events.pivot_table(index=['story_name'], columns='input', values='cycle')
+
+for story_name in connections.keys():
+    v = cycle_table.loc[story_name].values
+    
+    next_experience = []
+    current_cycle = 0
+    experiences[story_name] = []
+
+    for unit_index, cycle_index in enumerate(v):
+        if current_cycle != cycle_index:
+            experiences[story_name].append(next_experience)
+            next_experience = [unit_index]
+            current_cycle = cycle_index
+        else:
+            next_experience.append(unit_index)
+
+print(experiences['Fisherman'])
+
+# %% [markdown]
+#
+
+# %%
+distance_ranks = []
+
+# build list of distance_rank dfs across each factor i'm interested
+for time_test in pd.unique(events.time_test):
+    for story_name in pd.unique(events.story_name):
+
+        # initialize model and store initial distance_rank df
+        model = LandscapeRevised(connections[story_name])
+        model.connections[np.eye(model.unit_count, dtype='bool')] = 0
+
+        # perform the distance_rank analysis over the dataset using the matrix
+        distance_rank = fr.distance_rank(
+            events.loc[(events.story_name==story_name) & (events.time_test==time_test)], 
+            'item_index', 1-model.connections).reset_index()
+
+        # factor-specific information
+        distance_rank['story_name'] = story_name
+        distance_rank['time_test'] = time_test
+        distance_rank['simulation_step'] = 0
+        distance_ranks.append(distance_rank)
+
+        # add a further inner loop over cycles in story_name
+        for cycle in experiences[story_name]:
+            model.experience([cycle])
+
+            # perform the distance_rank analysis over the dataset using the matrix
+            distance_rank = fr.distance_rank(
+                events.loc[(events.story_name==story_name) & (events.time_test==time_test)], 
+                'item_index', 1-model.connections).reset_index()
+
+            # factor-specific information
+            distance_rank['story_name'] = story_name
+            distance_rank['time_test'] = time_test
+            distance_rank['simulation_step'] = 0
+            distance_ranks.append(distance_rank)
+
+distance_rank = pd.concat(distance_ranks)
+distance_rank = distance_rank.loc[distance_rank.time_test != 1]
+distance_rank.head()
 
 # %%
