@@ -105,126 +105,126 @@ class LandscapeRevised:
             self.update_connections(self.activations)
         self.cycle_index += len(cycles)
             
-        def update_activations(self, cycle):
-            """
-            Updates unit activations based on current reading cycle.
-            
-            1. Previous cycle activations decay by a parametrized amount 
-            toward a parametrized minimum value and spread to connected units.
-            3. Regardless of outcome, the activations of units in the current 
-                cycle are set to the maximum allowed value.  
-            4. Finally activations are reduced proportionately based on 
-                memory_capacity.
-            """
-            
-            # Previous cycle activations decay by a parametrized amount toward
-            # some parametrized minimum value and spread to connected units.
-            sigma = np.tanh(3 * (self.connections - 1)) + 1
-            self.activations = self.decay_rate * (sigma * self.activations)
-            
-            # activations of current cycle units set to maximum allowed value
-            self.activations[cycle] = self.max_activity
-            
-            # activations of all units get set to at least minimum activation
-            self.activations = np.maximum(self.activations, self.min_activity)
-            
-            #  if sum of activations exceeds capacity limit, 
-            # activations are reduced proportionally to attain the limit
-            total_activation = np.sum(self.activations)
-            if total_activation > self.memory_capacity:
-                self.activations *=  self.memory_capacity / total_activation
-                
-        def update_connections(self, activations):
-            """
-            Updates model connection weights based on current unit activations.
-            
-            Connection strength is accumulated from one cycle to the next as a 
-            function of the activation levels of the connected units. The 
-            learning_rate parameter controls the rate of change, with a high value 
-            representing a higher rate of learning from previous textual 
-            information. Because learning_rate or activation values cannot be 
-            smaller than 0, the connection strength necessarily is above 0, and 
-            changes are incremental.
-            """
-            self.connections += self.learning_rate * np.outer(
-                activations, activations)
-            
-        def outcome_probabilities(self):
-            """
-            Current unit recall probabilities given model state.
-            """
-            
-            activation = np.power(self.activations, self.choice_sensitivity)
-            probabilities = np.zeros((self.unit_count + 1))
-            probabilities[0] = min(self.stop_probability_scale * np.exp(
-                self.recall_total * self.stop_probability_growth), 1.0  - (
-                (self.unit_count - self.recall_total) * 10e-7))
-            
-            for already_recalled_item in self.recall[:self.recall_total]:
-                activation[int(already_recalled_item)] = 0
-            probabilities[1:] = (
-                1-probabilities[0]) * activation / np.sum(activation)
-
-            return probabilities
+    def update_activations(self, cycle):
+        """
+        Updates unit activations based on current reading cycle.
         
-        def free_recall(self, steps=None):
-            
-            # ensure retrieval information is reset
-            if not self.retrieving:
-                self.recall = np.zeros(self.unit_count)
-                self.recall_total = 0
-                self.preretrieval_activations = self.activations
-                self.retrieving = True
-
-            # we retrieve until termination if steps is left unspecified
-            if steps is None:
-                steps = self.unit_count - self.recall_total
-            steps = self.recall_total + steps
-
-            # at each recall attempt
-            while self.recall_total < steps:
-
-                # the current state of context is used as a retrieval cue to 
-                # attempt recall of a studied item compute outcome probabilities 
-                # and make choice based on distribution
-                outcome_probabilities = self.outcome_probabilities()
-                if np.any(outcome_probabilities[1:]):
-                    choice = np.sum(
-                        np.cumsum(outcome_probabilities) < np.random.rand())
-                else:
-                    choice = 0
-
-                # resolve and maybe store outcome
-                # we stop recall if no choice is made (0)
-                if choice == 0:
-                    self.retrieving = False
-                    self.activations = self.preretrieval_activations
-                    break
-                self.recall[self.recall_total] = choice - 1
-                self.recall_total += 1
-                self.update_activations([choice - 1])
-            return self.recall[:self.recall_total]
+        1. Previous cycle activations decay by a parametrized amount 
+        toward a parametrized minimum value and spread to connected units.
+        3. Regardless of outcome, the activations of units in the current 
+            cycle are set to the maximum allowed value.  
+        4. Finally activations are reduced proportionately based on 
+            memory_capacity.
+        """
         
-        def force_recall(self, choice=None):
+        # Previous cycle activations decay by a parametrized amount toward
+        # some parametrized minimum value and spread to connected units.
+        sigma = np.tanh(3 * (self.connections - 1)) + 1
+        self.activations = self.decay_rate * (sigma * self.activations)
+        
+        # activations of current cycle units set to maximum allowed value
+        self.activations[cycle] = self.max_activity
+        
+        # activations of all units get set to at least minimum activation
+        self.activations = np.maximum(self.activations, self.min_activity)
+        
+        #  if sum of activations exceeds capacity limit, 
+        # activations are reduced proportionally to attain the limit
+        total_activation = np.sum(self.activations)
+        if total_activation > self.memory_capacity:
+            self.activations *=  self.memory_capacity / total_activation
+            
+    def update_connections(self, activations):
+        """
+        Updates model connection weights based on current unit activations.
+        
+        Connection strength is accumulated from one cycle to the next as a 
+        function of the activation levels of the connected units. The 
+        learning_rate parameter controls the rate of change, with a high value 
+        representing a higher rate of learning from previous textual 
+        information. Because learning_rate or activation values cannot be 
+        smaller than 0, the connection strength necessarily is above 0, and 
+        changes are incremental.
+        """
+        self.connections += self.learning_rate * np.outer(
+            activations, activations)
+        
+    def outcome_probabilities(self):
+        """
+        Current unit recall probabilities given model state.
+        """
+        
+        activation = np.power(self.activations, self.choice_sensitivity)
+        probabilities = np.zeros((self.unit_count + 1))
+        probabilities[0] = min(self.stop_probability_scale * np.exp(
+            self.recall_total * self.stop_probability_growth), 1.0  - (
+            (self.unit_count - self.recall_total) * 10e-7))
+        
+        for already_recalled_item in self.recall[:self.recall_total]:
+            activation[int(already_recalled_item)] = 0
+        probabilities[1:] = (
+            1-probabilities[0]) * activation / np.sum(activation)
 
-            # ensure retrieval information is reset
-            if not self.retrieving:
-                self.recall = np.zeros(self.unit_count)
-                self.recall_total = 0
-                self.preretrieval_activations = self.activations
-                self.retrieving = True
+        return probabilities
+    
+    def free_recall(self, steps=None):
+        
+        # ensure retrieval information is reset
+        if not self.retrieving:
+            self.recall = np.zeros(self.unit_count)
+            self.recall_total = 0
+            self.preretrieval_activations = self.activations
+            self.retrieving = True
+
+        # we retrieve until termination if steps is left unspecified
+        if steps is None:
+            steps = self.unit_count - self.recall_total
+        steps = self.recall_total + steps
+
+        # at each recall attempt
+        while self.recall_total < steps:
+
+            # the current state of context is used as a retrieval cue to 
+            # attempt recall of a studied item compute outcome probabilities 
+            # and make choice based on distribution
+            outcome_probabilities = self.outcome_probabilities()
+            if np.any(outcome_probabilities[1:]):
+                choice = np.sum(
+                    np.cumsum(outcome_probabilities) < np.random.rand())
+            else:
+                choice = 0
 
             # resolve and maybe store outcome
             # we stop recall if no choice is made (0)
-            if choice is None:
-                pass
-            elif choice > 0:
-                self.recall[self.recall_total] = choice - 1
-                self.recall_total += 1
-                self.update_activations([choice - 1])
-            else:
+            if choice == 0:
                 self.retrieving = False
                 self.activations = self.preretrieval_activations
-            return self.recall[:self.recall_total]
+                break
+            self.recall[self.recall_total] = choice - 1
+            self.recall_total += 1
+            self.update_activations([choice - 1])
+        return self.recall[:self.recall_total]
+        
+    def force_recall(self, choice=None):
+
+        # ensure retrieval information is reset
+        if not self.retrieving:
+            self.recall = np.zeros(self.unit_count)
+            self.recall_total = 0
+            self.preretrieval_activations = self.activations
+            self.retrieving = True
+
+        # resolve and maybe store outcome
+        # we stop recall if no choice is made (0)
+        if choice is None:
+            pass
+        elif choice > 0:
+            self.recall[self.recall_total] = choice - 1
+            self.recall_total += 1
+            self.update_activations([choice - 1])
+        else:
+            self.retrieving = False
+            self.activations = self.preretrieval_activations
+        return self.recall[:self.recall_total]
 
 
