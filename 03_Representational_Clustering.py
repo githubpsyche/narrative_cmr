@@ -90,7 +90,7 @@ distance_rank = distance_rank.pivot_table(index=['time_test', 'subject'], values
 distance_rank.head()
 
 # %% [markdown]
-# **Note**: Some of these rank values are nan for a given subject and condition. This is because participants didn't recall anything during these particular trials. Does this affect downstream analyses? We'll find out with our successive analysis: a dotplot of semantic organization scores factored by time_test and subject.
+# **Note**: Some of these rank values are nan for a given subject and condition. This is because participants didn't recall anything during these particular trials. This doesn't seem to affect downstream analyses. We'll demonstrate as much with our successive analysis: a dotplot of semantic organization scores factored by time_test and subject.
 
 # %%
 
@@ -107,5 +107,9 @@ plt.ylabel('organization score');
 # %% [markdown]
 # ## Simulation Configuration
 # Let's demonstrate how to efficiently simulate the Landscape Model using the stimuli from our SBS dataset.
+# 
+# DataFrame construction should look much like the above, except with an extra factor varied over: `simulation_step`. From there, I'll apply another `pivot_table`, this time generalizing over subjects (or perhaps letting seaborn do that for me with its confidence interval support). The objective is a lineplot relating `simulation_step` with mean organization score across subjects.
+#
+# But what about simulation configuration? The key thing to work through is how to operate the `cycles` argument of `LandscapeRevised.experience`. The important thing is that each entry of `cycles` selects the right entries of `self.activations` to update when I assign `self.max_activity` within `LandscapeRevised.update_activations`.
 
 # %%
