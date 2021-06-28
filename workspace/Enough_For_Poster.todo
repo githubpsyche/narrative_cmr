@@ -1,0 +1,26 @@
+Representational Clustering:
+  ✔ Planning @15m @started(21-06-28 14:44) @done(21-06-28 14:59) @lasted(15m56s)
+    An initial attempt to segment work on this into smaller increments.
+
+  ✔ Load relevant data @10m @started(21-06-28 15:10) @done(21-06-28 15:27) @lasted(17m26s)
+    I _should_ already have the code for this. But what's the relevant data? Enough to initialize the model at first: the model itself, similarity matrices, etc.
+    This took longer in part because Wilberto requested some of my time.
+
+  ☐ Demo lag_rank analysis for initial model state @30m @started(21-06-28 15:34)
+    I have most of the code for this, but will have to make some tweaks.
+
+  ☐ Configure model simulation to work with data @30m
+    This should be straightforward but I may come against challenges.
+
+  ☐ Extend lag_rank analysis to connections across each step of landscape model @30m
+    Structuring the dataframe is the harder part here; I'll already have code for doing the analysis.
+
+  ☐ Plot resulting score distribution @10m
+    This should be trivial once I have the dataframe.
+
+*Notes*
+We'll refactor to center the poster reproduction as a core project increment.
+  Yeah, let's abandon the old organization (Semantic Effects, Temporal Effects) and instead take a progressive approach (03_Cutler_Poster_Reproduction, 04_Representational_Clustering).
+
+I should start in notebook mode, retracing my steps on progress so far.
+  If I understand right, this analysis has a few steps. I need a way to intialize the model with the trial data I'm interested in. Then I should demo the lag_rank function for initial connections. Then I should apply it for connections across each step of the landscape model. Then I just need a decent lineplot for the reason. I should build a dataframe with factors: input, story_name, etc.
