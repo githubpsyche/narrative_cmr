@@ -21,7 +21,7 @@ import json
 from psifr import fr
 import spacy
 
-LandscapeRevised = Landscape_Model.LandscapeRevised
+LandscapeRevised = Landscape_Model.LandscapeRevised # TODO: make this more conventional again later
 
 # load recall data frame
 data = pd.read_csv('data/psifr_sbs.csv')
@@ -146,7 +146,7 @@ print(experiences['Fisherman'])
 # %%
 
 import importlib
-importlib.reload(Landscape_Model)
+importlib.reload(Landscape_Model) #TODO: get rid of this after debugging
 
 LandscapeRevised = Landscape_Model.LandscapeRevised
 
