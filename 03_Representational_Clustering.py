@@ -11,7 +11,7 @@
 # For flexibility, we'll retrieve our own similarities.
 
 # %%
-from Landscape_Model import LandscapeRevised
+import Landscape_Model
 from sentence_transformers import SentenceTransformer, util
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -20,6 +20,8 @@ import numpy as np
 import json
 from psifr import fr
 import spacy
+
+LandscapeRevised = Landscape_Model.LandscapeRevised
 
 # load recall data frame
 data = pd.read_csv('data/psifr_sbs.csv')
@@ -142,6 +144,12 @@ print(experiences['Fisherman'])
 #
 
 # %%
+
+import importlib
+importlib.reload(Landscape_Model)
+
+LandscapeRevised = Landscape_Model.LandscapeRevised
+
 distance_ranks = []
 
 # build list of distance_rank dfs across each factor i'm interested
