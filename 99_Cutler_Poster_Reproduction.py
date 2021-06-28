@@ -256,4 +256,5 @@ plt.ylim([0, .2])
 
 
 # %% [markdown]
-# This is a bit confusing. In my delayed condition, there's a slight clustering between semantically similar items. But overall, highly congruent items don't exhibit heightened recall rates? 
+# So the semantic CRP analysis is really noisy even when we include data from all stories. Standard deviation also seems to vary as semantic similarity increases, particularly in the delayed condition. That's the definition heteroskedasticity, right? I have no idea what the significance of that observation might be though. And the shape of this curve seems to depend substantially on the analysis anyway. I might end up concluding that I simply need more data. Will need some reflection about why though. In the meantime, let's clarify these analyses.
+
