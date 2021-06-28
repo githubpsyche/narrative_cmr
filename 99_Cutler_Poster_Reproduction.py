@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 from psifr import fr
 
 # load recall data frame
-data = pd.read_csv('../data/psifr_sbs.csv')
+data = pd.read_csv('data/psifr_sbs.csv')
 events = fr.merge_free_recall(
     data, list_keys=['item_index', 'cycle', 'story_index', 
                      'story_name', 'time_test'])
