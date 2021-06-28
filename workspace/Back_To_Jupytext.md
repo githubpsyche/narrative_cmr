@@ -20,3 +20,5 @@ This seems great. From the first commit I already have tons of information about
 Even if I love the notebook interface, I feel increasingly sure I don't want notebooks to be the main source for my files here!
 
 **I need highlighting here**. Like actual highlighting.
+
+Wait there's a reason I turned off gistpad. It's these weird suggestions 
