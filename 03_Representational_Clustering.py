@@ -29,7 +29,7 @@ events = fr.merge_free_recall(
 # average_word_embeddings_glove.6B.300d
 # average_word_embeddings_glove.840B.300d
 # stsb-distilbert-base
-model = SentenceTransformer('average_word_embeddings_glove.840B.300d')
+model = SentenceTransformer('paraphrase-MiniLM-L12-v2')
 units = events.pivot_table(index=['story_name', 'input'], values='item', aggfunc='first').reset_index()
 connections = {}
 remove_stopwords = False
@@ -90,9 +90,15 @@ for time_test in pd.unique(events.time_test):
         
 distance_rank = pd.concat(distance_ranks)
 distance_rank = distance_rank.loc[distance_rank.time_test != 1]
-distance_rank
+distance_rank.head()
 
 # %% [markdown]
-# **Note**: Some of these rank values are nan for a given subject and condition. I need to understand why. One hypothesis? Participants didn't recall anything during these particular trials. This is because
+# **Note**: Some of these rank values are nan for a given subject and condition. This is because participants didn't recall anything during these particular trials. Does this affect downstream analyses? We'll find out with our successive analysis: a dotplot of semantic organization scores factored by time_test and subject.
 
+# %%
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.catplot(data=distance_rank, x="time_test", y="rank", hue="subject", jitter=False, palette='pastel', legend=False);
+plt.ylim([.2, 1.0])
 # %%
