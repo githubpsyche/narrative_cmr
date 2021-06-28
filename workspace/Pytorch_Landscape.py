@@ -266,7 +266,7 @@ class LandscapeRevised(nn.Module):
         # spread of activations from previous cycle based on connection weights
         # with positive logarithmic change in connection strengths enforced
         sigma = torch.tanh(3 * (self.connections-1)) + 1
-        sigma = sigma # TODO: normalize
+        sigma = sigma 
         self.activations = self.decay_rate * ( sigma @ self.activations.t() ).t().squeeze()
 
         # activations of current cycle units get set to maximum allowed value
@@ -465,7 +465,6 @@ class LandscapeDS(Dataset):
       - a list of lists denoting the reading cycles (convert to list of torch tensors?)
     """
     super(LandscapeDS, self).__init__()
-    # TODO: some preprocessing of the input data to get only the stuff I need
     self.data = data
   
   def __len__(self):
@@ -473,10 +472,6 @@ class LandscapeDS(Dataset):
   
   def __getitem__(self, item):
     return self.data[item]
-
-
-# %%
-# TODO: train and validation split
 
 # %%
 ds = LandscapeDS(data)
@@ -487,7 +482,6 @@ dl = DataLoader(ds, batch_size=1, shuffle=True) # can't have >1 batch_size as si
 # # Training
 
 # %%
-# TODO: put this in a Trainer class?
 
 # %%
 # loss calculation
