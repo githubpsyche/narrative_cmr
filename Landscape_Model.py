@@ -119,6 +119,7 @@ class LandscapeRevised:
         
         # Previous cycle activations decay by a parametrized amount toward
         # some parametrized minimum value and spread to connected units.
+        breakpoint()
         sigma = np.tanh(3 * (self.connections - 1)) + 1
         self.activations = self.decay_rate * (sigma * self.activations)
         
