@@ -105,4 +105,7 @@ plt.xlabel('time of test')
 plt.ylabel('organization score');
 
 # %% [markdown]
-# ## Model Simulation Configuration
+# ## Simulation Configuration
+# Let's demonstrate how to efficiently simulate the Landscape Model using the stimuli from our SBS dataset.
+
+# %%
