@@ -3,7 +3,7 @@ Enough for Poster:
   ✔ Split landscape model specification from analysis code @5m @started(21-06-28 06:24) @done(21-06-28 06:29) @lasted(5m56s)
   Instead of splitting, I found it easier to just take advantage of what Python scripts are for; my original notebooks specifying the classes can be imported directly.
 
-  ☐ Extend semantic organizational analyses to span models simulation increments @1h
+  ☐ Extend semantic organizational analyses to span models simulation increments @3h
   Do I want to try filling in the whole notebook? Refactor to center the poster reproduction as a core project increment? Yeah, let's abandon the old organization (Semantic Effects, Temporal Effects) and instead take a progressive approach (03_Cutler_Poster_Reproduction, 04_Representational_Clustering).
 
   ☐ Apply similar representational clustering analysis to CMR simulations. @2h

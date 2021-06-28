@@ -227,9 +227,4 @@ class LandscapeRevised:
                 self.activations = self.preretrieval_activations
             return self.recall[:self.recall_total]
 
-# %% [markdown]
-# ## Simulation Configuration
-# Let's demonstrate how to efficiently simulate the Landscape Model using the stimuli from our SBS dataset.
 
-# %% [markdown]
-#
