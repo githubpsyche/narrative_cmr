@@ -1,4 +1,4 @@
-# %%
+```python
 # hide
 if 'google.colab' in str(get_ipython()):
 
@@ -15,19 +15,19 @@ if 'google.colab' in str(get_ipython()):
     # !pip install -U sentence-transformers
 
 from nbdev.showdoc import *
+```
 
-# %% [markdown]
-# # The Revised Landscape Model
-#
-# Here we reproduce the revision of the Landscape model of reading comprehension presented by Yeari and van den Broek (2016). The model integrates the dynamic landscape model of reading comprehension originally characterized by van den Broek (1996) with a latent semantic analysis (LSA) representation of semantic knowledge. This revised landscape model (LS-R model) computes fluctuations in the activation of text units and the interconnections established between them throughout reading. Our implemention of the landscape model is, however, agnostic about the basis of representations of semantic knowledge.
-#
-# > Yeari, M., & van den Broek, P. (2016). A computational modeling of semantic knowledge in reading comprehension: Integrating the landscape model with latent semantic analysis. Behavior research methods, 48(3), 880-896.
-#
+# The Revised Landscape Model
 
-# %% [markdown]
-# ## Setup
+Here we reproduce the revision of the Landscape model of reading comprehension presented by Yeari and van den Broek (2016). The model integrates the dynamic landscape model of reading comprehension originally characterized by van den Broek (1996) with a latent semantic analysis (LSA) representation of semantic knowledge. This revised landscape model (LS-R model) computes fluctuations in the activation of text units and the interconnections established between them throughout reading. Our implemention of the landscape model is, however, agnostic about the basis of representations of semantic knowledge.
 
-# %%
+> Yeari, M., & van den Broek, P. (2016). A computational modeling of semantic knowledge in reading comprehension: Integrating the landscape model with latent semantic analysis. Behavior research methods, 48(3), 880-896.
+
+
+
+## Setup
+
+```python
 import torch
 import numpy as np # for loading data
 import torch.nn.functional as F
@@ -36,29 +36,32 @@ from torch.utils.data import Dataset, DataLoader
 
 from sentence_transformers import SentenceTransformer
 # from transformers import DistilBertModel, DistilBertTokenizer
+```
 
-# %%
+```python
 password=input()
 # !git clone https://spectraldoy:{password}@github.com/vucml/landscape_cmr
+```
 
-# %%
+```python
 if torch.cuda.is_available():
   device = torch.device("cuda:0")
 else:
   device = torch.device("cpu")
+```
 
+<!-- #region -->
+## Semantic Text Similarity
+This should be as part of the data preprocessing, data can be saved as dictionaries with:
+```python
+{
+  "text_units": torch.Tensor of text unit indices,
+  "init_connections": initial TextSimilarity between text units
+}
+```
+<!-- #endregion -->
 
-# %% [markdown]
-# ## Semantic Text Similarity
-# This should be as part of the data preprocessing, data can be saved as dictionaries with:
-# ```python
-# {
-#   "text_units": torch.Tensor of text unit indices,
-#   "init_connections": initial TextSimilarity between text units
-# }
-# ```
-
-# %%
+```python
 class TextSimilarity(nn.Module):
   def __init__(self, model_name="stsb-distilbert-base"):
     super(TextSimilarity, self).__init__()
@@ -86,24 +89,24 @@ class TextSimilarity(nn.Module):
     embeddings = torch.cat([self.model.encode(i, convert_to_tensor=True) for i in cycles])
     init_connections = self.cosine_similarity(embeddings)
     return init_connections
+```
 
-
-# %%
+```python
 ts = TextSimilarity("stsb-distilbert-base")
+```
 
-# %%
+```python
 reading_cycles = [
   ["this is one", "of the many", "we have", "to use"],
   ["this is another"],
   ["do you think", "this could be", "a final?"]
 ]
 ts(reading_cycles)
+```
 
+## The Model
 
-# %% [markdown]
-# ## The Model
-
-# %%
+```python
 class LandscapeRevised(nn.Module):
     """
     The landscape model of reading as revised by Yeari and van den Broek (1996).
@@ -390,30 +393,35 @@ class LandscapeRevised(nn.Module):
                 self.recall_total += 1
                 self.update_activations(np.array([choice]))
         return self.recall[:self.recall_total]
+```
 
-# %%
+```python
 init_connections = ts(reading_cycles)
 lsr = LandscapeRevised(init_connections, 0.1, 0.1, 1)
+```
 
-# %%
+```python
 lsr.experience([
                 [ torch.tensor([5])],
                 [ torch.tensor([6]),torch.tensor([7]) ]
                 ])
+```
 
-# %%
+```python
 lsr.activations
+```
 
-# %%
+```python
 lsr.draft_probability()
+```
 
-# %%
+```python
 F.cross_entropy(lsr.draft_probability(), torch.randperm(8, device=device))
+```
 
-# %% [markdown]
-# ## Data Setup
+## Data Setup
 
-# %%
+```python
 reading_cycles1 = [
   ["this is one", "of the many", "we have", "to use"],
   ["this is another"],
@@ -429,8 +437,9 @@ for i in range(len(reading_cycles1)):
     cycle_idxs1[i].append(count)
     count += 1
 cycle_idxs1
+```
 
-# %%
+```python
 reading_cycles2 = [
   ["look at this graph", "said Nickel Back", "a long time ago"],
   ["or is it Nickel back", "or Nickle Back"],
@@ -447,15 +456,16 @@ for i in range(len(reading_cycles2)):
     cycle_idxs2[i].append(count)
     count += 1
 cycle_idxs2
+```
 
-# %%
+```python
 data = [
   [torch.randperm(len(ic1), device=device), ic1, cycle_idxs1],
   [torch.randperm(len(ic2), device=device), ic2, cycle_idxs2]
 ]
+```
 
-
-# %%
+```python
 class LandscapeDS(Dataset):
   def __init__(self, data):
     """
@@ -472,27 +482,29 @@ class LandscapeDS(Dataset):
   
   def __getitem__(self, item):
     return self.data[item]
+```
 
-# %%
+```python
 ds = LandscapeDS(data)
 dl = DataLoader(ds, batch_size=1, shuffle=True) # can't have >1 batch_size as size differs
+```
 
+# Training
 
-# %% [markdown]
-# # Training
+```python
 
-# %%
+```
 
-# %%
+```python
 # loss calculation
 def loss_fn(model, datapoint, criterion=F.cross_entropy):
     model.reset(datapoint[1])
     model.experience(datapoint[2])
 
     return criterion(model.draft_probability(), datapoint[0])
+```
 
-
-# %%
+```python
 def fit(epochs, model, opt, dl):
     """fit the model to the dl for the specified number of epochs"""
     losses = []
@@ -521,9 +533,9 @@ def fit(epochs, model, opt, dl):
           print(f"Epoch {epoch} Loss {loss}")
 
     return losses
+```
 
-
-# %%
+```python
 # create model
 item_zero = next(iter(dl))
 lsr = LandscapeRevised(item_zero[1], 0.1, 0.1, 1).to(device)
@@ -531,14 +543,17 @@ lsr = LandscapeRevised(item_zero[1], 0.1, 0.1, 1).to(device)
 # create optimizer
 LR = 0.1 # needs to be tuned
 optimizer = optim.SGD(lsr.parameters(), lr=LR)
+```
 
-# %%
+```python
 lossses = fit(10, lsr, optimizer, dl)
+```
 
-# %%
+```python
 lsr.state_dict()
+```
 
-# %%
+```python
 # initial default params:
 max_activity=1.0, 
 min_activity=0.0, 
@@ -546,3 +561,4 @@ decay_rate=0.1,
 memory_capacity=5.0, 
 learning_rate=0.9, 
 semantic_strength=1.0
+```
