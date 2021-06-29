@@ -229,4 +229,5 @@ g = sns.FacetGrid(sim_distance_rank,
 g.map_dataframe(sns.lineplot, 'simulation_step', 'rank', hue='time_test', palette='pastel');
 #g.set(xticks=np.arange(0, 46, 2))
 plt.show()
+
 # %%
