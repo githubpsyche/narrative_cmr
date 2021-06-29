@@ -125,6 +125,7 @@ cycle_table = events.pivot_table(index=['story_name'], columns='input', values='
 
 for story_name in connections.keys():
     v = cycle_table.loc[story_name].values
+    v = v[~np.isnan(v)]
     
     next_experience = []
     current_cycle = 0
@@ -150,45 +151,82 @@ importlib.reload(Landscape_Model) #TODO: get rid of this after debugging
 
 LandscapeRevised = Landscape_Model.LandscapeRevised
 
-distance_ranks = []
+sim_distance_ranks = []
 
 # build list of distance_rank dfs across each factor i'm interested
 for time_test in pd.unique(events.time_test):
     for story_name in pd.unique(events.story_name):
 
-        # initialize model and store initial distance_rank df
+        # initialize model and store initial sim_distance_rank df
         model = LandscapeRevised(connections[story_name])
         model.connections[np.eye(model.unit_count, dtype='bool')] = 0
 
         # perform the distance_rank analysis over the dataset using the matrix
-        distance_rank = fr.distance_rank(
+        sim_distance_rank = fr.distance_rank(
             events.loc[(events.story_name==story_name) & (events.time_test==time_test)], 
             'item_index', 1-model.connections).reset_index()
 
         # factor-specific information
-        distance_rank['story_name'] = story_name
-        distance_rank['time_test'] = time_test
-        distance_rank['simulation_step'] = 0
-        distance_ranks.append(distance_rank)
+        sim_distance_rank['story_name'] = story_name
+        sim_distance_rank['time_test'] = time_test
+        sim_distance_rank['simulation_step'] = 0
+        sim_distance_ranks.append(sim_distance_rank)
 
         # add a further inner loop over cycles in story_name
-        for cycle in experiences[story_name]:
-            breakpoint()
+        for cycle_index, cycle in enumerate(experiences[story_name]):
             model.experience([cycle])
 
             # perform the distance_rank analysis over the dataset using the matrix
-            distance_rank = fr.distance_rank(
+            sim_distance_rank = fr.distance_rank(
                 events.loc[(events.story_name==story_name) & (events.time_test==time_test)], 
                 'item_index', 1-model.connections).reset_index()
 
             # factor-specific information
-            distance_rank['story_name'] = story_name
-            distance_rank['time_test'] = time_test
-            distance_rank['simulation_step'] = 0
-            distance_ranks.append(distance_rank)
+            sim_distance_rank['story_name'] = story_name
+            sim_distance_rank['time_test'] = time_test
+            sim_distance_rank['simulation_step'] = int(cycle_index + 1)
+            sim_distance_ranks.append(sim_distance_rank)
 
-distance_rank = pd.concat(distance_ranks)
-distance_rank = distance_rank.loc[distance_rank.time_test != 1]
-distance_rank.head()
+sim_distance_rank = pd.concat(sim_distance_ranks)
+#sim_distance_rank = sim_distance_rank.loc[sim_distance_rank.time_test != 1]
+sim_distance_rank.head()
 
+# %% [markdown]
+# Let's confirm that the analysis is solid by reproducing our above plot for just a single simulation_step in our data.
+
+# %%
+subset = sim_distance_rank[sim_distance_rank.simulation_step==10].pivot_table(index=['time_test', 'subject'], values='rank').reset_index()
+
+sns.set(style='whitegrid')
+sns.lmplot(data=subset, 
+    x="time_test", y="rank", palette="deep");
+plt.xticks([1, 2, 3], ['immediate1', 'immediate2', 'delay'])
+plt.axhline(y=.5, color='r', label='chance')
+plt.xlim([.5, 3.5])
+plt.xlabel('time of test')
+plt.ylabel('organization score');
+
+# %% [markdown]
+# Next is a line plot relating simulation_step with representational clustering score.
+
+# %%
+
+sns.set(style='darkgrid')
+g = sns.lineplot(data=sim_distance_rank, x='simulation_step', y='rank', hue='time_test', palette='pastel')
+plt.xlabel('simulation step')
+plt.ylabel('organization score')
+plt.title('Clustering by Representational Similarity: Landscape Model')
+plt.legend(['immediate_1', 'immediate_2', 'delay'], title='time of test');
+
+# %% [markdown]
+# And again, but factored by story.
+
+# %%
+sns.set(style='darkgrid')
+
+g = sns.FacetGrid(sim_distance_rank, 
+    col='story_name', height=5)
+g.map_dataframe(sns.lineplot, 'simulation_step', 'rank', hue='time_test', palette='pastel');
+#g.set(xticks=np.arange(0, 46, 2))
+plt.show()
 # %%
