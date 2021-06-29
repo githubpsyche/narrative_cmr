@@ -1,16 +1,13 @@
-# %% [markdown]
 # # Clustering by Representational Similarity
 
-# %% [markdown]
 # Previous work has applied a distance rank analysis to summarize with a single scalar value the tendency to group together nearby items using various distance metrics, including serial order and semantic similarity. This analysis is also probably applicable to measure the extent how recall is clustered according to latent representational states inferred with our models. For example, the distance_rank analysis can be applied to data using semantic similarities from GloVe, but also to semantic connections simulated with the Landscape model.
 #
 # To really underline how dynamics within the Landscape model progressively _evolve_ a representation of semantic associations between items, we can simulate the study phase of each trial using the model's default parameters and track this distance_rank statistic at each increment. A horizontal line records the initial value based on pre-existing semantic associations, also the default matrix used for SemanticCMR and associated analyses.
 
-# %% [markdown]
 # ## Load Relevant Dependencies and Data
 # For flexibility, we'll retrieve our own similarities.
 
-# %%
+# +
 import Landscape_Model
 from sentence_transformers import SentenceTransformer, util
 import seaborn as sns
@@ -20,6 +17,8 @@ import numpy as np
 import json
 from psifr import fr
 import spacy
+import warnings
+warnings.filterwarnings('ignore')
 
 LandscapeRevised = Landscape_Model.LandscapeRevised # TODO: make this more conventional again later
 
@@ -60,12 +59,12 @@ for story_name in ['Fisherman', 'Supermarket', 'Flight', 'Cat', 'Fog', 'Beach']:
     connections[story_name] = cosine_scores
 
 events.head()
+# -
 
-# %% [markdown]
 # ## Demo Representational Clustering Analysis for Initial Model State
 # For each story and time_test, initialize the model with the relevant connectivity matrix, perform the lag_rank analysis over the dataset using the matrix, combine dataFrames, and plot the result.
 
-# %%
+# +
 
 distance_ranks = []
 
@@ -90,11 +89,11 @@ distance_rank = pd.concat(distance_ranks)
 distance_rank = distance_rank.loc[distance_rank.time_test != 1]
 distance_rank = distance_rank.pivot_table(index=['time_test', 'subject'], values='rank').reset_index()
 distance_rank.head()
+# -
 
-# %% [markdown]
 # **Note**: Some of these rank values are nan for a given subject and condition. This is because participants didn't recall anything during these particular trials. This doesn't seem to affect downstream analyses. We'll demonstrate as much with our successive analysis: a dotplot of semantic organization scores factored by time_test and subject.
 
-# %%
+# +
 
 sns.set(style='whitegrid')
 sns.lmplot(data=distance_rank, 
@@ -105,8 +104,8 @@ plt.xlim([1.5, 3.5])
 plt.ylim([.45, .65])
 plt.xlabel('time of test')
 plt.ylabel('organization score');
+# -
 
-# %% [markdown]
 # ## Simulation Configuration
 # Let's demonstrate how to efficiently simulate the Landscape Model using the stimuli from our SBS dataset.
 #
@@ -114,11 +113,10 @@ plt.ylabel('organization score');
 #
 # But what about simulation configuration? The key thing to work through is how to operate the `cycles` argument of `LandscapeRevised.experience`. The important thing is that each entry of `cycles` selects the right entries of `self.activations` to update when I assign `self.max_activity` within `LandscapeRevised.update_activations`. This probably just requires a list of indices per entry, right? Do I already have code for that?
 
-# %% [markdown]
 # ### Cycle Extraction
 # Let's just directly get a list of cycles containing indices of relevant units.
 
-# %%
+# +
 experiences = {}
 
 cycle_table = events.pivot_table(index=['story_name'], columns='input', values='cycle')
@@ -140,11 +138,11 @@ for story_name in connections.keys():
             next_experience.append(unit_index)
 
 print(experiences['Fisherman'])
+# -
 
-# %% [markdown]
 # ## Extend Distance_Rank Analysis Over Each Simulation Stp
 
-# %%
+# +
 
 import importlib
 importlib.reload(Landscape_Model) #TODO: get rid of this after debugging
@@ -152,11 +150,12 @@ importlib.reload(Landscape_Model) #TODO: get rid of this after debugging
 LandscapeRevised = Landscape_Model.LandscapeRevised
 
 sim_distance_ranks = []
-sim_connections = []
+sim_connections = {}
 
 # build list of distance_rank dfs across each factor i'm interested
 for time_test in pd.unique(events.time_test):
     for story_name in pd.unique(events.story_name):
+        print(story_name) #TODO: delete this after debugging
 
         # initialize model and store initial sim_distance_rank df
         model = LandscapeRevised(connections[story_name])
@@ -188,14 +187,16 @@ for time_test in pd.unique(events.time_test):
             sim_distance_rank['simulation_step'] = int(cycle_index + 1)
             sim_distance_ranks.append(sim_distance_rank)
 
+        sim_connections[story_name] = model.connections.copy()
+
 sim_distance_rank = pd.concat(sim_distance_ranks)
 #sim_distance_rank = sim_distance_rank.loc[sim_distance_rank.time_test != 1]
 sim_distance_rank.head()
+# -
 
-# %% [markdown]
 # Let's confirm that the analysis is solid by reproducing our above plot for just a single simulation_step in our data.
 
-# %%
+# +
 subset = sim_distance_rank[sim_distance_rank.simulation_step==10].pivot_table(index=['time_test', 'subject'], values='rank').reset_index()
 
 sns.set(style='whitegrid')
@@ -206,11 +207,11 @@ plt.axhline(y=.5, color='r', label='chance')
 plt.xlim([.5, 3.5])
 plt.xlabel('time of test')
 plt.ylabel('organization score');
+# -
 
-# %% [markdown]
 # Next is a line plot relating simulation_step with representational clustering score.
 
-# %%
+# +
 
 sns.set(style='darkgrid')
 g = sns.lineplot(data=sim_distance_rank, x='simulation_step', y='rank', hue='time_test', palette='pastel')
@@ -218,11 +219,11 @@ plt.xlabel('simulation step')
 plt.ylabel('organization score')
 plt.title('Clustering by Representational Similarity: Landscape Model')
 plt.legend(['immediate_1', 'immediate_2', 'delay'], title='time of test');
+# -
 
-# %% [markdown]
 # And again, but factored by story.
 
-# %%
+# +
 sns.set(style='darkgrid')
 
 g = sns.FacetGrid(sim_distance_rank, 
@@ -230,16 +231,102 @@ g = sns.FacetGrid(sim_distance_rank,
 g.map_dataframe(sns.lineplot, 'simulation_step', 'rank', hue='time_test', palette='pastel');
 #g.set(xticks=np.arange(0, 46, 2))
 plt.show()
+# -
 
-# %% [markdown]
+# ## Semantic Similarity Matrix Follow-Up
+
+for story_name in sim_connections.keys():
+    print(story_name)
+    print(np.nanmax(sim_connections[story_name]), np.nanmin(sim_connections[story_name]))
+    print(np.median(sim_connections[story_name]), np.nanmax(sim_connections[story_name])/np.median(sim_connections[story_name]))
+
+for story_name in sim_connections.keys():
+    
+    sns.heatmap(sim_connections[story_name], xticklabels=5, yticklabels=5, vmin=0, vmax=1)
+    plt.title(story_name)
+    plt.show()
+
+# Some cells in these connectivity matrices contain unbelievably high weights compared to other values, with the maximum cell value ranging from 70 times to 544 times the median cell value. This could be a sign of some bug in the model simulation.
+
 # ## Correlation Follow-Up
 # Yeari et al found that the Landscape model's simulated connection strengths were positively associated with recall proportions (r s = .70, p < .01; Fig. 1b). Can we reproduce that finding here? We'd redo `Lmplot_Probability_Recall_by_Mean_Glove840B_Cosine_Similiarity.svg` from the `Cutler_Poster_Reproduction`, but using fully simulated Landscape Model representations instead of initial similarities.
 
-# %%
+# +
+sim_connection_strengths = {}
+for story_name in sim_connections.keys():
+    sim_connection_strengths[story_name] = np.nansum(sim_connections[story_name], axis=1)
 
-# %% [markdown]
+strengths_df = events.pivot_table(
+    index=['story_name', 'time_test', 'input'], values='recall').reset_index()
+strengths_df['cosine_similarity'] = np.nan
+
+for story_name in pd.unique(events.story_name):
+    for time_test in range(1, 4):
+        for input in range(1, len(sim_connection_strengths[story_name])+1):
+            if len(strengths_df.loc[(strengths_df.story_name == story_name) & (
+                strengths_df.time_test == time_test) & (strengths_df.input == input)]) == 1:
+
+                strengths_df.loc[(strengths_df.story_name == story_name) & (
+                    strengths_df.time_test == time_test) & (
+                        strengths_df.input == input), 'cosine_similarity'] = sim_connection_strengths[story_name][input-1]
+
+strengths_df.head()
+# -
+
+sns.set(style='whitegrid')
+g = sns.FacetGrid(strengths_df.loc[strengths_df.time_test == 1], 
+    col='story_name', height=5)
+g.map_dataframe(sns.lineplot, 'input', 'cosine_similarity');
+g.set(xticks=np.arange(0, 46, 2))
+plt.show()
+
+# +
+sns.set_theme(style='whitegrid')
+    
+sns.lmplot(data=strengths_df.loc[strengths_df.time_test > 1], 
+    x="cosine_similarity", y="recall", palette="deep", hue='time_test', legend=False);
+plt.xlabel('connection strength')
+plt.ylabel('probability recall');
+plt.legend(['immediate', 'delay'], title='time of test');
+# -
+
 # ## Semantic CRP Follow-Up
 # Similarly redo `FacetGrid_SemCRP_by_Time_Test` from the `Cutler_Poster_Reproduction` but using simulated model connectivities. 
 
-# %% [markdown]
+# +
+sem_crps = []
+
+# choose bins for CRP
+bin_size = .1
+np.arange(0, 1 + bin_size, bin_size)
+edges = np.arange(0, 1 + bin_size, bin_size)
+
+# build list of sem_crps across each factor i'm interested
+for time_test in pd.unique(events.time_test):
+    for story_name in pd.unique(events.story_name):
+        subset = events.loc[(events.time_test == time_test) & (
+            events.story_name == story_name)]
+        dcrp = fr.distance_crp(
+            subset, 'item_index', sim_connections[story_name], edges)
+        dcrp['story_name'] = story_name
+        if time_test == 1:
+            dcrp['time_test'] = 1
+        elif time_test == 2:
+            dcrp['time_test'] = 'immediate'
+        else:
+            dcrp['time_test'] = 'delayed'
+        sem_crps.append(dcrp)
+    
+sem_crp = pd.concat(sem_crps).reset_index()
+sem_crp = sem_crp.loc[sem_crp.time_test != 1]
+sem_crp = sem_crp.pivot_table(index=['time_test', 'subject', 'center'], values='prob').reset_index()
+sem_crp
+# -
+
+g = sns.FacetGrid(data=sem_crp, col='time_test')
+g.map_dataframe(sns.lineplot, x='center', y='prob')
+g.map_dataframe(sns.scatterplot, x='center', y='prob', hue='subject', palette='pastel')
+g.set_xlabels('Similarity')
+g.set_ylabels('CRP');
+
 #
