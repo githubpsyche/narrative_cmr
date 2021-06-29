@@ -152,6 +152,7 @@ importlib.reload(Landscape_Model) #TODO: get rid of this after debugging
 LandscapeRevised = Landscape_Model.LandscapeRevised
 
 sim_distance_ranks = []
+sim_connections = []
 
 # build list of distance_rank dfs across each factor i'm interested
 for time_test in pd.unique(events.time_test):
@@ -230,4 +231,15 @@ g.map_dataframe(sns.lineplot, 'simulation_step', 'rank', hue='time_test', palett
 #g.set(xticks=np.arange(0, 46, 2))
 plt.show()
 
+# %% [markdown]
+# ## Correlation Follow-Up
+# Yeari et al found that the Landscape model's simulated connection strengths were positively associated with recall proportions (r s = .70, p < .01; Fig. 1b). Can we reproduce that finding here? We'd redo `Lmplot_Probability_Recall_by_Mean_Glove840B_Cosine_Similiarity.svg` from the `Cutler_Poster_Reproduction`, but using fully simulated Landscape Model representations instead of initial similarities.
+
 # %%
+
+# %% [markdown]
+# ## Semantic CRP Follow-Up
+# Similarly redo `FacetGrid_SemCRP_by_Time_Test` from the `Cutler_Poster_Reproduction` but using simulated model connectivities. 
+
+# %% [markdown]
+#
