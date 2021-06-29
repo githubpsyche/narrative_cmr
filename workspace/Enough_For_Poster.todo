@@ -9,16 +9,16 @@ Representational Clustering:
   ✔ Demo lag_rank analysis for initial model state @30m @started(21-06-28 15:34) @done(21-06-28 16:54) @lasted(1h20m21s)
     I have most of the code for this, but will have to make some tweaks.
 
-  ☐ Configure model simulation to work with data @30m @started(21-06-28 17:41)
+  ✔ Configure model simulation to work with data @30m @started(21-06-28 18:11) @done(21-06-28 18:51) @lasted(40m15s)
     This should be straightforward but I may come against challenges.
 
-  ☐ Extend lag_rank analysis to connections across each step of landscape model @15m
+  ✔ Extend lag_rank analysis to connections across each step of landscape model @15m @started(21-06-28 18:51) @done(21-06-28 18:51) @lasted(21s)
     Structuring the dataframe is the harder part here; I'll already have code for doing the analysis.
 
-  ☐ Plot resulting score distribution @10m
+  ✔ Plot resulting score distribution @10m @started(21-06-28 18:53) @done(21-06-28 19:02) @lasted(9m41s)
     This should be trivial once I have the dataframe.
 
-*Notes*
+Notes
 We'll refactor to center the poster reproduction as a core project increment.
   Yeah, let's abandon the old organization (Semantic Effects, Temporal Effects) and instead take a progressive approach (03_Cutler_Poster_Reproduction, 04_Representational_Clustering).
 
