@@ -146,7 +146,6 @@ class LandscapeRevised:
         smaller than 0, the connection strength necessarily is above 0, and 
         changes are incremental.
         """
-        breakpoint()
         self.connections += self.learning_rate * np.outer(
             activations, activations)
         self.connections[np.eye(self.unit_count, dtype='bool')] = 0
