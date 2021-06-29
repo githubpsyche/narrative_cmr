@@ -1,20 +1,14 @@
 # %% [markdown]
-"""
-# Clustering by Representational Similarity
-"""
+# # Clustering by Representational Similarity
 
 # %% [markdown]
-"""
-Previous work has applied a distance rank analysis to summarize with a single scalar value the tendency to group together nearby items using various distance metrics, including serial order and semantic similarity. This analysis is also probably applicable to measure the extent how recall is clustered according to latent representational states inferred with our models. For example, the distance_rank analysis can be applied to data using semantic similarities from GloVe, but also to semantic connections simulated with the Landscape model.
-
-To really underline how dynamics within the Landscape model progressively _evolve_ a representation of semantic associations between items, we can simulate the study phase of each trial using the model's default parameters and track this distance_rank statistic at each increment. A horizontal line records the initial value based on pre-existing semantic associations, also the default matrix used for SemanticCMR and associated analyses.
-"""
+# Previous work has applied a distance rank analysis to summarize with a single scalar value the tendency to group together nearby items using various distance metrics, including serial order and semantic similarity. This analysis is also probably applicable to measure the extent how recall is clustered according to latent representational states inferred with our models. For example, the distance_rank analysis can be applied to data using semantic similarities from GloVe, but also to semantic connections simulated with the Landscape model.
+#
+# To really underline how dynamics within the Landscape model progressively _evolve_ a representation of semantic associations between items, we can simulate the study phase of each trial using the model's default parameters and track this distance_rank statistic at each increment. A horizontal line records the initial value based on pre-existing semantic associations, also the default matrix used for SemanticCMR and associated analyses.
 
 # %% [markdown]
-"""
-## Load Relevant Dependencies and Data
-For flexibility, we'll retrieve our own similarities.
-"""
+# ## Load Relevant Dependencies and Data
+# For flexibility, we'll retrieve our own similarities.
 
 # %%
 import Landscape_Model
@@ -68,10 +62,8 @@ for story_name in ['Fisherman', 'Supermarket', 'Flight', 'Cat', 'Fog', 'Beach']:
 events.head()
 
 # %% [markdown]
-"""
-## Demo Representational Clustering Analysis for Initial Model State
-For each story and time_test, initialize the model with the relevant connectivity matrix, perform the lag_rank analysis over the dataset using the matrix, combine dataFrames, and plot the result.
-"""
+# ## Demo Representational Clustering Analysis for Initial Model State
+# For each story and time_test, initialize the model with the relevant connectivity matrix, perform the lag_rank analysis over the dataset using the matrix, combine dataFrames, and plot the result.
 
 # %%
 
@@ -100,9 +92,7 @@ distance_rank = distance_rank.pivot_table(index=['time_test', 'subject'], values
 distance_rank.head()
 
 # %% [markdown]
-"""
-**Note**: Some of these rank values are nan for a given subject and condition. This is because participants didn't recall anything during these particular trials. This doesn't seem to affect downstream analyses. We'll demonstrate as much with our successive analysis: a dotplot of semantic organization scores factored by time_test and subject.
-"""
+# **Note**: Some of these rank values are nan for a given subject and condition. This is because participants didn't recall anything during these particular trials. This doesn't seem to affect downstream analyses. We'll demonstrate as much with our successive analysis: a dotplot of semantic organization scores factored by time_test and subject.
 
 # %%
 
@@ -117,20 +107,16 @@ plt.xlabel('time of test')
 plt.ylabel('organization score');
 
 # %% [markdown]
-"""
-## Simulation Configuration
-Let's demonstrate how to efficiently simulate the Landscape Model using the stimuli from our SBS dataset.
-
-DataFrame construction should look much like the above, except with an extra factor varied over: `simulation_step`. From there, I'll apply another `pivot_table`, this time generalizing over subjects (or perhaps letting seaborn do that for me with its confidence interval support). The objective is a lineplot relating `simulation_step` with mean organization score across subjects.
-
-But what about simulation configuration? The key thing to work through is how to operate the `cycles` argument of `LandscapeRevised.experience`. The important thing is that each entry of `cycles` selects the right entries of `self.activations` to update when I assign `self.max_activity` within `LandscapeRevised.update_activations`. This probably just requires a list of indices per entry, right? Do I already have code for that?
-"""
+# ## Simulation Configuration
+# Let's demonstrate how to efficiently simulate the Landscape Model using the stimuli from our SBS dataset.
+#
+# DataFrame construction should look much like the above, except with an extra factor varied over: `simulation_step`. From there, I'll apply another `pivot_table`, this time generalizing over subjects (or perhaps letting seaborn do that for me with its confidence interval support). The objective is a lineplot relating `simulation_step` with mean organization score across subjects.
+#
+# But what about simulation configuration? The key thing to work through is how to operate the `cycles` argument of `LandscapeRevised.experience`. The important thing is that each entry of `cycles` selects the right entries of `self.activations` to update when I assign `self.max_activity` within `LandscapeRevised.update_activations`. This probably just requires a list of indices per entry, right? Do I already have code for that?
 
 # %% [markdown]
-"""
-### Cycle Extraction
-Let's just directly get a list of cycles containing indices of relevant units.
-"""
+# ### Cycle Extraction
+# Let's just directly get a list of cycles containing indices of relevant units.
 
 # %%
 experiences = {}
@@ -156,9 +142,7 @@ for story_name in connections.keys():
 print(experiences['Fisherman'])
 
 # %% [markdown]
-"""
-## Extend Distance_Rank Analysis Over Each Simulation Step of Landscape Model
-"""
+# ## Extend Distance_Rank Analysis Over Each Simulation Stp
 
 # %%
 
@@ -208,9 +192,7 @@ sim_distance_rank = pd.concat(sim_distance_ranks)
 sim_distance_rank.head()
 
 # %% [markdown]
-"""
-Let's confirm that the analysis is solid by reproducing our above plot for just a single simulation_step in our data.
-"""
+# Let's confirm that the analysis is solid by reproducing our above plot for just a single simulation_step in our data.
 
 # %%
 subset = sim_distance_rank[sim_distance_rank.simulation_step==10].pivot_table(index=['time_test', 'subject'], values='rank').reset_index()
@@ -225,9 +207,7 @@ plt.xlabel('time of test')
 plt.ylabel('organization score');
 
 # %% [markdown]
-"""
-Next is a line plot relating simulation_step with representational clustering score.
-"""
+# Next is a line plot relating simulation_step with representational clustering score.
 
 # %%
 
@@ -239,9 +219,7 @@ plt.title('Clustering by Representational Similarity: Landscape Model')
 plt.legend(['immediate_1', 'immediate_2', 'delay'], title='time of test');
 
 # %% [markdown]
-"""
-And again, but factored by story.
-"""
+# And again, but factored by story.
 
 # %%
 sns.set(style='darkgrid')
