@@ -39,10 +39,10 @@ sns.catplot(
     x='time_test', y="recall", 
     data=recall_rates_by_timetest.loc[recall_rates_by_timetest.time_test > 1], 
         jitter=False, s=15, hue='subject', legend=False, palette='pastel');
-plt.xticks(np.arange(2), ['immediate', 'delay'])
+plt.xticks(np.arange(2), ['Immediate', 'Delayed'])
 plt.yticks(np.arange(0, 1, .25), np.arange(0, 1, .25))
-plt.xlabel('time of test')
-plt.ylabel('probability recall')
+plt.xlabel('Time of Test')
+plt.ylabel('Unit Recall Rate')
 plt.ylim([0, 1])
 plt.show()
 
@@ -65,9 +65,9 @@ spc.head()
 # %%
 sns.set(style='darkgrid')
 g = sns.lineplot(data=spc, x='input', y='recall', hue='time_test', palette='pastel')
-plt.xlabel('Study Position')
-plt.ylabel('Probability Recall')
-plt.legend(['immediate', 'delay'], title='time of test');
+plt.xlabel('Story Position')
+plt.ylabel('Unit Recall Rate')
+plt.legend(['Immediate', 'Delayed'], title='Time of Test');
 
 # %% [markdown]
 # We _do_ find a steady decline in performance across serial position at immediate test, but not at delayed test.
@@ -103,9 +103,9 @@ g.map_dataframe(
     lambda data, **kws: sns.lineplot(
         data=data.query(filt_pos), x='lag', y='prob', hue='time_test', palette='pastel', **kws)
 )
-g.set_xlabels('Lag')
-g.set_ylabels('conditional response probability')
-plt.legend(['immediate', 'delay'], title='time of test')
+g.set_xlabels('Lag in Story From Last Recalled Unit')
+g.set_ylabels('Conditional Unit Recall Rate')
+plt.legend(['Immediate', 'Delayed'], title='Time of Test')
 g.set(ylim=(0, 1));
 
 # %% [markdown]
@@ -200,6 +200,8 @@ sns.set(style='whitegrid')
 g = sns.FacetGrid(strengths_df.loc[strengths_df.time_test == 1], 
     col='story_name', height=5)
 g.map_dataframe(sns.lineplot, 'input', 'cosine_similarity');
+g.set_ylabels('Summed Semantic Similarity Across Story Units')
+g.set_xlabels('Position of Unit in Story')
 g.set(xticks=np.arange(0, 46, 2))
 plt.show()
 
@@ -208,8 +210,9 @@ sns.set_theme(style='whitegrid')
     
 sns.lmplot(data=strengths_df.loc[strengths_df.time_test > 1], 
     x="cosine_similarity", y="recall", palette="deep", hue='time_test', legend=False);
-plt.ylabel('probability recall');
-plt.legend(['immediate', 'delay'], title='time of test');
+plt.ylabel('Unit Recall Rate');
+plt.xlabel('Summed Semantic Similarity Across Story Units')
+plt.legend(['Immediate', 'Delayed'], title='Time of Test');
 
 # %% [markdown]
 # ## Semantic CRP
@@ -250,8 +253,8 @@ sem_crp
 g = sns.FacetGrid(data=sem_crp, col='time_test')
 g.map_dataframe(sns.lineplot, x='center', y='prob')
 g.map_dataframe(sns.scatterplot, x='center', y='prob', hue='subject', palette='pastel')
-g.set_xlabels('Similarity')
-g.set_ylabels('CRP');
+g.set_xlabels('Similarity of Last Recalled Unit')
+g.set_ylabels('Conditional Unit Recall Rate');
 plt.ylim([0, .2])
 
 

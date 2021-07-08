@@ -15,13 +15,13 @@
 # ## Dataset Overview
 
 # %%
-from IPython.display import Markdown
+#from IPython.display import Markdown
 
-def render_tex(tex_path, bib_path, csl_path):
-    result = !pandoc -C --ascii {tex_path} -f latex -t markdown_mmd --bibliography {bib_path} --csl {csl_path}
-    return Markdown('\n'.join(result))
+#def render_tex(tex_path, bib_path, csl_path):
+#    result = !pandoc -C --ascii {tex_path} -f latex -t markdown_mmd --bibliography {bib_path} --csl {csl_path}
+#    return Markdown('\n'.join(result))
 
-render_tex('writing/BrownSchmidt_Dataset.tex', 'writing/references.bib', 'writing/main/apa.csl')
+#render_tex('writing/BrownSchmidt_Dataset.tex', 'writing/references.bib', 'writing/main/apa.csl')
 
 # %% [markdown]
 # Human raters have gotten us most of what we want in the spreadsheet at `data/raw/Narrative Recall Data.xlsx`. Most preprocessing using external data is devoted to identifying otherwise ambiguous relationships between source idea units.
