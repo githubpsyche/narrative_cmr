@@ -11,7 +11,7 @@
 # For flexibility, we'll retrieve our own similarities.
 
 # %%
-import Landscape_Model
+from Landscape_Model import LandscapeRevised
 from sentence_transformers import SentenceTransformer, util
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -22,8 +22,6 @@ from psifr import fr
 import spacy
 import warnings
 warnings.filterwarnings('ignore')
-
-LandscapeRevised = Landscape_Model.LandscapeRevised # TODO: make this more conventional again later
 
 # load recall data frame
 data = pd.read_csv('data/psifr_sbs.csv')
@@ -68,7 +66,6 @@ events.head()
 # For each story and time_test, initialize the model with the relevant connectivity matrix, perform the lag_rank analysis over the dataset using the matrix, combine dataFrames, and plot the result.
 
 # %%
-
 distance_ranks = []
 
 # build list of distance_rank dfs across each factor i'm interested
@@ -97,21 +94,21 @@ distance_rank.head()
 # **Note**: Some of these rank values are nan for a given subject and condition. This is because participants didn't recall anything during these particular trials. This doesn't seem to affect downstream analyses. We'll demonstrate as much with our successive analysis: a dotplot of semantic organization scores factored by time_test and subject.
 
 # %%
-
 sns.set(style='whitegrid')
 sns.lmplot(data=distance_rank, 
     x="time_test", y="rank", palette="deep");
-plt.xticks([2, 3], ['immediate', 'delay'])
+plt.xticks([2, 3], ['Immediate', 'Delayed'])
 plt.axhline(y=.5, color='r', label='chance')
 plt.xlim([1.5, 3.5])
 plt.ylim([.45, .65])
-plt.xlabel('time of test')
-plt.ylabel('organization score');
+plt.xlabel('Time of Test')
+plt.ylabel('Baseline Representational Clustering');
 
 # %% [markdown]
 # ## Simulation Configuration
-# Let's demonstrate how to efficiently simulate the Landscape Model using the stimuli from our SBS dataset.
-#
+# Before getting into more detailed analyses, let's demonstrate how to efficiently simulate the Landscape Model using the stimuli from our SBS dataset.
+
+# %% [markdown]
 # DataFrame construction should look much like the above, except with an extra factor varied over: `simulation_step`. From there, I'll apply another `pivot_table`, this time generalizing over subjects (or perhaps letting seaborn do that for me with its confidence interval support). The objective is a lineplot relating `simulation_step` with mean organization score across subjects.
 #
 # But what about simulation configuration? The key thing to work through is how to operate the `cycles` argument of `LandscapeRevised.experience`. The important thing is that each entry of `cycles` selects the right entries of `self.activations` to update when I assign `self.max_activity` within `LandscapeRevised.update_activations`. This probably just requires a list of indices per entry, right? Do I already have code for that?
@@ -144,22 +141,16 @@ for story_name in connections.keys():
 print(experiences['Fisherman'])
 
 # %% [markdown]
-# ## Extend Distance_Rank Analysis Over Each Simulation Stp
+# ## Extend Distance_Rank Analysis Over Each Simulation Step
+# This time, we'll take the representational clustering analysis we demoed above and apply it over each simulation step, tracking changes in analysis result.
 
 # %%
-
-import importlib
-importlib.reload(Landscape_Model) #TODO: get rid of this after debugging
-
-LandscapeRevised = Landscape_Model.LandscapeRevised
-
 sim_distance_ranks = []
 sim_connections = {}
 
 # build list of distance_rank dfs across each factor i'm interested
 for time_test in pd.unique(events.time_test):
     for story_name in pd.unique(events.story_name):
-        print(story_name) #TODO: delete this after debugging
 
         # initialize model and store initial sim_distance_rank df
         model = LandscapeRevised(connections[story_name])
@@ -206,11 +197,11 @@ subset = sim_distance_rank[sim_distance_rank.simulation_step==10].pivot_table(in
 sns.set(style='whitegrid')
 sns.lmplot(data=subset, 
     x="time_test", y="rank", palette="deep");
-plt.xticks([1, 2, 3], ['immediate1', 'immediate2', 'delay'])
+plt.xticks([1, 2, 3], ['First Immediate', 'Second Immediate', 'Delayed'])
 plt.axhline(y=.5, color='r', label='chance')
 plt.xlim([.5, 3.5])
-plt.xlabel('time of test')
-plt.ylabel('organization score');
+plt.xlabel('Time of Test')
+plt.ylabel('Representational Clustering');
 
 # %% [markdown]
 # Next is a line plot relating simulation_step with representational clustering score.
@@ -219,10 +210,10 @@ plt.ylabel('organization score');
 
 sns.set(style='darkgrid')
 g = sns.lineplot(data=sim_distance_rank, x='simulation_step', y='rank', hue='time_test', palette='pastel')
-plt.xlabel('simulation step')
-plt.ylabel('organization score')
+plt.xlabel('Simulation Step')
+plt.ylabel('Representational Clustering in Recall')
 plt.title('Clustering by Representational Similarity: Landscape Model')
-plt.legend(['immediate_1', 'immediate_2', 'delay'], title='time of test');
+plt.legend(['First Immediate', 'Second Immediate', 'Delayed'], title='Time of Test');
 
 # %% [markdown]
 # And again, but factored by story.
@@ -234,6 +225,8 @@ g = sns.FacetGrid(sim_distance_rank,
     col='story_name', height=5)
 g.map_dataframe(sns.lineplot, 'simulation_step', 'rank', hue='time_test', palette='pastel');
 #g.set(xticks=np.arange(0, 46, 2))
+g.set_xlabels('Simulation Step')
+g.set_ylabels('Representational Clustering in Recall')
 plt.show()
 
 # %% [markdown]
@@ -296,6 +289,9 @@ sns.lmplot(data=strengths_df.loc[strengths_df.time_test > 1],
 plt.xlabel('connection strength')
 plt.ylabel('probability recall');
 plt.legend(['immediate', 'delay'], title='time of test');
+
+# %% [markdown]
+# Totally flat! Quite concerning that I couldn't reproduce the result. Yeah, I probably do have to look into this more closely.
 
 # %% [markdown]
 # ## Semantic CRP Follow-Up
