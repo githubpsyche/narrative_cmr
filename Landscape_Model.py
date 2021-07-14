@@ -120,13 +120,21 @@ class LandscapeRevised:
         # Previous cycle activations decay by a parametrized amount toward
         # some parametrized minimum value and spread to connected units.
         sigma = np.tanh(3 * (self.connections - 1)) + 1
-        self.activations = self.decay_rate * np.sum(sigma * self.activations, axis=0)
-        
+
         # activations of current cycle units set to maximum allowed value
         self.activations[cycle] = self.max_activity
         
-        # activations of all units get set to at least minimum activation
+        #previous_activations = self.activations.copy()
+        #for i in range(self.unit_count):
+        #    self.activations[i] = self.decay_rate * np.sum(sigma[i] * previous_activations)
+        self.activations = self.decay_rate * np.sum(sigma * self.activations, axis=1)
+
+        # activations of current cycle units set to maximum allowed value
+        self.activations[cycle] = self.max_activity
+        
+        # activations of all units get set between min and max activity params
         self.activations = np.maximum(self.activations, self.min_activity)
+        self.activations = np.minimum(self.activations, self.max_activity)
         
         #  if sum of activations exceeds capacity limit, 
         # activations are reduced proportionally to attain the limit
@@ -148,7 +156,7 @@ class LandscapeRevised:
         """
         self.connections += self.learning_rate * np.outer(
             activations, activations)
-        self.connections[np.eye(self.unit_count, dtype='bool')] = 0
+        self.connections[np.eye(self.unit_count, dtype='bool')] = 1
         
     def outcome_probabilities(self):
         """

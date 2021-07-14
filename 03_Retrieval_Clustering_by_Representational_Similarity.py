@@ -14,10 +14,10 @@
 from Landscape_Model import LandscapeRevised
 from sentence_transformers import SentenceTransformer, util
 import seaborn as sns
+from scipy import stats
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import json
 from psifr import fr
 import spacy
 import warnings
@@ -33,7 +33,7 @@ events = fr.merge_free_recall(
 # average_word_embeddings_glove.6B.300d
 # average_word_embeddings_glove.840B.300d
 # stsb-distilbert-base
-model = SentenceTransformer('average_word_embeddings_glove.840B.300d')
+model = SentenceTransformer('stsb-distilbert-base')
 units = events.pivot_table(index=['story_name', 'input'], values='item', aggfunc='first').reset_index()
 connections = {}
 remove_stopwords = False
@@ -55,8 +55,8 @@ for story_name in ['Fisherman', 'Supermarket', 'Flight', 'Cat', 'Fog', 'Beach']:
     embeddings = model.encode(clean_sentences, convert_to_tensor=True)
 
     #Compute cosine-similarities for each sentence with each other sentence
-    cosine_scores = np.abs(util.pytorch_cos_sim(embeddings, embeddings).numpy())
-    cosine_scores[np.eye(len(cosine_scores), dtype='bool')] = np.nan
+    cosine_scores = util.pytorch_cos_sim(embeddings, embeddings).numpy()
+    cosine_scores[np.eye(len(cosine_scores), dtype='bool')] = 1
     connections[story_name] = cosine_scores
 
 events.head()
@@ -74,7 +74,6 @@ for time_test in pd.unique(events.time_test):
 
         # initialize the model with the relevant connectivity matrix
         model = LandscapeRevised(connections[story_name])
-        model.connections[np.eye(model.unit_count, dtype='bool')] = 0
 
         # perform the distance_rank analysis over the dataset using the matrix
         distance_rank = fr.distance_rank(
@@ -98,11 +97,11 @@ sns.set(style='whitegrid')
 sns.lmplot(data=distance_rank, 
     x="time_test", y="rank", palette="deep");
 plt.xticks([2, 3], ['Immediate', 'Delayed'])
-plt.axhline(y=.5, color='r', label='chance')
 plt.xlim([1.5, 3.5])
-plt.ylim([.45, .65])
+plt.ylim([.5, .65])
 plt.xlabel('Time of Test')
 plt.ylabel('Baseline Representational Clustering');
+plt.savefig('results/Lmplot_Time_Test_by_Distance_Rank_Glove840B_by_Subject.svg')
 
 # %% [markdown]
 # ## Simulation Configuration
@@ -154,7 +153,6 @@ for time_test in pd.unique(events.time_test):
 
         # initialize model and store initial sim_distance_rank df
         model = LandscapeRevised(connections[story_name])
-        model.connections[np.eye(model.unit_count, dtype='bool')] = 0
 
         # perform the distance_rank analysis over the dataset using the matrix
         sim_distance_rank = fr.distance_rank(
@@ -192,16 +190,18 @@ sim_distance_rank.head()
 # Let's confirm that the analysis is solid by reproducing our above plot for just a single simulation_step in our data.
 
 # %%
-subset = sim_distance_rank[sim_distance_rank.simulation_step==10].pivot_table(index=['time_test', 'subject'], values='rank').reset_index()
+arbitrary_step = 10
+subset = sim_distance_rank[sim_distance_rank.simulation_step==arbitrary_step].pivot_table(index=['time_test', 'subject'], values='rank').reset_index()
 
 sns.set(style='whitegrid')
-sns.lmplot(data=subset, 
-    x="time_test", y="rank", palette="deep");
+sns.scatterplot(data=subset, 
+    x="time_test", y="rank");
+sns.lineplot(data=subset, 
+    x="time_test", y="rank", ci=False);
 plt.xticks([1, 2, 3], ['First Immediate', 'Second Immediate', 'Delayed'])
-plt.axhline(y=.5, color='r', label='chance')
 plt.xlim([.5, 3.5])
 plt.xlabel('Time of Test')
-plt.ylabel('Representational Clustering');
+plt.ylabel('Simulated Semantic Clustering at Step {}'.format(arbitrary_step));
 
 # %% [markdown]
 # Next is a line plot relating simulation_step with representational clustering score.
@@ -221,12 +221,14 @@ plt.legend(['First Immediate', 'Second Immediate', 'Delayed'], title='Time of Te
 # %%
 sns.set(style='darkgrid')
 
-g = sns.FacetGrid(sim_distance_rank, 
-    col='story_name', height=5)
-g.map_dataframe(sns.lineplot, 'simulation_step', 'rank', hue='time_test', palette='pastel');
+g = sns.FacetGrid(sim_distance_rank.loc[sim_distance_rank.time_test==2], height=5, col='time_test')
+g.map_dataframe(sns.lineplot, 'simulation_step', 'rank', hue='story_name', palette='pastel');
 #g.set(xticks=np.arange(0, 46, 2))
-g.set_xlabels('Simulation Step')
-g.set_ylabels('Representational Clustering in Recall')
+g.set_xlabels('Model Simulation Step')
+g.set_ylabels('Recall Clustering by Model Connection Weights')
+plt.title('The Landscape Model Accounts for Recall Organization\nMuch Better Than Semantic Similarity Alone')
+plt.legend(title='Story')
+plt.savefig('results/Lineplot_LMR_Distance_Rank_by_Simulation_Step_by_Story.svg')
 plt.show()
 
 # %% [markdown]
@@ -255,7 +257,7 @@ for story_name in sim_connections.keys():
 # %%
 sim_connection_strengths = {}
 for story_name in sim_connections.keys():
-    sim_connection_strengths[story_name] = np.nansum(sim_connections[story_name], axis=1)
+    sim_connection_strengths[story_name] = np.nanmean(sim_connections[story_name], axis=1)
 
 strengths_df = events.pivot_table(
     index=['story_name', 'time_test', 'input'], values='recall').reset_index()
@@ -273,12 +275,32 @@ for story_name in pd.unique(events.story_name):
 
 strengths_df.head()
 
+# %% [markdown]
+# And some corresponding correlation tests. 
+
+# %%
+
+for time_test in pd.unique(events.time_test):
+    print('all', time_test)
+    print(stats.pearsonr(strengths_df.loc[strengths_df.time_test == time_test].recall, strengths_df.loc[strengths_df.time_test == time_test].cosine_similarity))
+
+    for story_name in pd.unique(strengths_df.story_name):
+        print(story_name, time_test)
+        print(stats.pearsonr(strengths_df.loc[(strengths_df.story_name == story_name) & (strengths_df.time_test == time_test)].recall, strengths_df.loc[(strengths_df.story_name == story_name) & (strengths_df.time_test == time_test)].cosine_similarity))
+
+# %%
+for time_test in range(1, 4):
+    print('Time Test == {}'.format(time_test))
+    print(strengths_df.loc[strengths_df.time_test == time_test].corr().to_markdown())
+    print()
+
 # %%
 sns.set(style='whitegrid')
 g = sns.FacetGrid(strengths_df.loc[strengths_df.time_test == 1], 
     col='story_name', height=5)
 g.map_dataframe(sns.lineplot, 'input', 'cosine_similarity');
 g.set(xticks=np.arange(0, 46, 2))
+plt.savefig('results/Lmplot_Probability_Recall_by_Mean_Connection_Weight.svg')
 plt.show()
 
 # %%
@@ -286,9 +308,20 @@ sns.set_theme(style='whitegrid')
     
 sns.lmplot(data=strengths_df.loc[strengths_df.time_test > 1], 
     x="cosine_similarity", y="recall", palette="deep", hue='time_test', legend=False);
-plt.xlabel('connection strength')
-plt.ylabel('probability recall');
+plt.xlabel('Mean Simulated Connection Weight')
+plt.ylabel('Unit Recall Rate');
 plt.legend(['immediate', 'delay'], title='time of test');
+plt.savefig('results/Lmplot_Probability_Recall_by_Mean_Connection_Weight.svg')
+
+# %%
+
+sns.lmplot(data=strengths_df.loc[strengths_df.time_test > 1], 
+    x="cosine_similarity", y="recall", palette="deep", hue='time_test', col='story_name', col_wrap=3, legend=False);
+plt.xlabel('Mean Simulated Connection Weight')
+plt.ylabel('Unit Recall Rate');
+plt.legend(['immediate', 'delay'], title='time of test');
+plt.savefig('results/Lmplot_Probability_Recall_by_Mean_Connection_Weight_by_Story.svg')
+
 
 # %% [markdown]
 # Totally flat! Quite concerning that I couldn't reproduce the result. Yeah, I probably do have to look into this more closely.
@@ -332,6 +365,6 @@ g.map_dataframe(sns.lineplot, x='center', y='prob')
 g.map_dataframe(sns.scatterplot, x='center', y='prob', hue='subject', palette='pastel')
 g.set_xlabels('Similarity')
 g.set_ylabels('CRP');
+plt.savefig('results/Lineplot_Model_DistanceCRP_by_Time_Test.svg')
 
-# %% [markdown]
-#
+# %% 
