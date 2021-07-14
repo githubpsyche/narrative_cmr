@@ -23,3 +23,5 @@
 # Substantive differences between models of text comprehension mainly revolve entirely around the kinds of linguistic features that drive mapping between **idea units.** For example, the construction-integration model emphasizes argument overlap between units, while the causal networking model emphasizes cause-effect relations within a story and models such as the structure-building and event-indexing model focused on how continuity or disruption thereof could sort stories into sequences of discrete events collecting groups of ideas. 
 #
 # The landscape model of reading comprehension is comparatively flexible/agnostic, and allows identification of relations between idea units to be contingent based on the premises of current research, and instead concerning itself with how pre-existing relations between concepts evolve over and a consequence of reading them together in a story.
+
+# %%

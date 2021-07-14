@@ -8,7 +8,6 @@
 # %%
 import pandas as pd
 import numpy as np
-import json
 import seaborn as sns
 import matplotlib.pyplot as plt
 from psifr import fr
@@ -59,7 +58,7 @@ plt.show()
 spc = events.query('study').pivot_table(
     index=['subject', 'story_name', 'time_test', 'input'], values=['recall']).reset_index()
 spc.reset_index(level=0, inplace=True)
-spc = spc.loc[spc.time_test > 1]
+#spc = spc.loc[spc.time_test > 1]
 spc.head()
 
 # %%
@@ -67,7 +66,19 @@ sns.set(style='darkgrid')
 g = sns.lineplot(data=spc, x='input', y='recall', hue='time_test', palette='pastel')
 plt.xlabel('Story Position')
 plt.ylabel('Unit Recall Rate')
-plt.legend(['Immediate', 'Delayed'], title='Time of Test');
+plt.legend(['Immediate1', 'Immediate2', 'Delayed'], title='Time of Test');
+
+# %%
+for time_test in range(1, 4):
+    g = sns.FacetGrid(spc.loc[spc.time_test == time_test], col='story_name', height=5, col_wrap=3)
+    g.map_dataframe(sns.lineplot, 'input', 'recall', hue='time_test', palette='deep', ci=False);
+    plt.xlabel('Story Position')
+    plt.ylabel('Unit Recall Rate')
+    #plt.legend(['Immediate1', 'Immediate2', 'Delayed'], title='Time of Test');
+    g.fig.subplots_adjust(top=.9)
+    g.fig.suptitle('Serial Position Curves at Time Test == {}'.format(time_test), fontsize=16)
+    plt.savefig('results/Lineplot_SPC_by_Story_Time_Test_{}.svg'.format(time_test))
+    plt.show()
 
 # %% [markdown]
 # We _do_ find a steady decline in performance across serial position at immediate test, but not at delayed test.
@@ -127,7 +138,7 @@ all_stopwords = nlp.Defaults.stop_words
 # average_word_embeddings_glove.6B.300d
 # average_word_embeddings_glove.840B.300d
 # stsb-distilbert-base
-model = SentenceTransformer('average_word_embeddings_glove.840B.300d') 
+model = SentenceTransformer('paraphrase-MiniLM-L12-v2') 
 connections = {}
 remove_stopwords = False
 
@@ -148,7 +159,7 @@ for story_name in ['Fisherman', 'Supermarket', 'Flight', 'Cat', 'Fog', 'Beach']:
 
     #Compute cosine-similarities for each sentence with each other sentence
     cosine_scores = np.abs(util.pytorch_cos_sim(embeddings, embeddings).numpy())
-    cosine_scores[np.eye(len(cosine_scores), dtype='bool')] = np.nan
+    #cosine_scores[np.eye(len(cosine_scores), dtype='bool')] = 1
     connections[story_name] = cosine_scores
 
 # Let's take a peek at the ranges of these similarity scores.
@@ -200,7 +211,7 @@ sns.set(style='whitegrid')
 g = sns.FacetGrid(strengths_df.loc[strengths_df.time_test == 1], 
     col='story_name', height=5)
 g.map_dataframe(sns.lineplot, 'input', 'cosine_similarity');
-g.set_ylabels('Summed Semantic Similarity Across Story Units')
+g.set_ylabels('Mean Semantic Similarity Across Story Units')
 g.set_xlabels('Position of Unit in Story')
 g.set(xticks=np.arange(0, 46, 2))
 plt.show()
@@ -211,7 +222,7 @@ sns.set_theme(style='whitegrid')
 sns.lmplot(data=strengths_df.loc[strengths_df.time_test > 1], 
     x="cosine_similarity", y="recall", palette="deep", hue='time_test', legend=False);
 plt.ylabel('Unit Recall Rate');
-plt.xlabel('Summed Semantic Similarity Across Story Units')
+plt.xlabel('Mean Semantic Similarity Across Story Units')
 plt.legend(['Immediate', 'Delayed'], title='Time of Test');
 
 # %% [markdown]
@@ -224,7 +235,7 @@ plt.legend(['Immediate', 'Delayed'], title='Time of Test');
 sem_crps = []
 
 # choose bins for CRP
-bin_size = .1
+bin_size = .25
 np.arange(0, 1 + bin_size, bin_size)
 edges = np.arange(0, 1 + bin_size, bin_size)
 
@@ -239,9 +250,9 @@ for time_test in pd.unique(events.time_test):
         if time_test == 1:
             dcrp['time_test'] = 1
         elif time_test == 2:
-            dcrp['time_test'] = 'immediate'
+            dcrp['time_test'] = 'Immediate'
         else:
-            dcrp['time_test'] = 'delayed'
+            dcrp['time_test'] = 'Delayed'
         sem_crps.append(dcrp)
     
 sem_crp = pd.concat(sem_crps).reset_index()
@@ -255,7 +266,8 @@ g.map_dataframe(sns.lineplot, x='center', y='prob')
 g.map_dataframe(sns.scatterplot, x='center', y='prob', hue='subject', palette='pastel')
 g.set_xlabels('Similarity of Last Recalled Unit')
 g.set_ylabels('Conditional Unit Recall Rate');
-plt.ylim([0, .2])
+plt.ylim([0, .15])
+#plt.xlim([0, 1])
 
 
 # %% [markdown]
