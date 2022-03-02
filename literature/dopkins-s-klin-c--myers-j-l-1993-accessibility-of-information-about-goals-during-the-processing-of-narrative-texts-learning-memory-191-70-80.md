@@ -1,0 +1,5 @@
+# Dopkins, S., Klin, C., & Myers, J. L. (1993). Accessibility of Information About Goals During the Processing of Narrative Texts. Learning, Memory, 19(1), 70-80.
+
+> We used a probe procedure to show that a goal established earlier in a text is active in memory at the point of its achievement. An initial experiment demonstrated that a goal category (began an investigation to nab the THIEF) is accessible, relative to a control condition, following the processing of a goal-achievement sentence (had the PURSER brought to his office). The remaining experiments provided evidence against several explanations of this result: (a) that the goal category's accessibility is due to an advantage in the strength of its initial encoding; (b) that the goal category is maintained in memory from the point at which the goal is established; or (c) that the goal category is reinstated at the point of goal achievement as the result of a high-level inference. The results suggest that the goal category is reinstated as the result of a low-level inference similar to the type that links an anaphor and its antecedent. 
+
+
