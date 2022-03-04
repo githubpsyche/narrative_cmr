@@ -1,0 +1,43 @@
+project:
+  type: book
+
+book:
+  title: "A Retrieved Context Account of Narrative Comprehension and Recall"
+  lang: "en"
+  execute: false
+  chapters:
+    - index.md
+    - references.md 
+
+csl: apa.csl
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+  pdf:
+    author: 
+      - |
+        | Jordan B. Gunn
+        | Cognition and Cognitive Neuroscience Program
+        | Vanderbilt University
+        | Nashville, TN 37235
+        | \texttt{jordan.gunn@vanderbilt.edu}
+      - |
+        | \textbf{Sean M. Polyn}
+        | Department of Psychological Sciences
+        | Vanderbilt University
+        | Nashville, TN 37235
+        | \texttt{sean.polyn@vanderbilt.edu}
+    header-includes: |
+      \usepackage{setspace}
+      \onehalfspacing
+      %\doublespacing
+      \usepackage{arxiv}
+    toc: false
+    keep-tex: true
+    echo: false
+    output: false
+    documentclass: article
+    #classoption:  12pt
