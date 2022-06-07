@@ -14,7 +14,7 @@ Bower likes this because it provides a more concrete specification of story cent
 
 Section on "Goals and plans as causes". Cites a paper with Foss but I can't find it. Title isn't there, either? Big claim: "Readers take longer to understand an action in a story as the number of independent goals the actor has increase". Hope I can find the source someday, because I don't think the landscape model or CMR could account for that.
 
-<!--TODO: find the paper matched with this claim.>
+<!--TODO: find the paper matched with this claim.-->
 
 Then spatial situation models. Two more papers cited as distinguishing between major and minor characters and the focus on the former, but citations aren't clear enough to find papers. Maybe I hate this paper after all.
 

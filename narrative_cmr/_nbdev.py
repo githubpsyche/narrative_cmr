@@ -2,9 +2,14 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {}
+index = {"semantic_data_likelihood": "Data_Likelihood_Under_Model.ipynb",
+         "semantic_objective_function": "Data_Likelihood_Under_Model.ipynb",
+         "LandscapeRevised": "Landscape_Model.ipynb",
+         "cmr_spec": "Semantic_CMR.ipynb",
+         "Semantic_CMR": "Semantic_CMR.ipynb"}
 
-modules = []
+modules = ["evaluation.py",
+           "models.py"]
 
 doc_url = "https://githubpsyche.github.io/narrative_cmr/"
 

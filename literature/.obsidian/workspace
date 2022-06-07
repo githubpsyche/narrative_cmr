@@ -1,0 +1,105 @@
+{
+  "main": {
+    "id": "7306a10d8cd03c63",
+    "type": "split",
+    "children": [
+      {
+        "id": "c6d2619e7cc95f79",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a488be43324c9e0c",
+    "type": "split",
+    "children": [
+      {
+        "id": "cbd3473d440588d9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "375767823d725155",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "16efbedd08c44205",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 641
+  },
+  "right": {
+    "id": "bb23a1416bdabeef",
+    "type": "split",
+    "children": [
+      {
+        "id": "8586b06a5be83507",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "350f181e5fb7dbe4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "55353766c5af33bf",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 471
+  },
+  "active": "c6d2619e7cc95f79",
+  "lastOpenFiles": [
+    "Deception Detection in Mafia Games Using Word Embeddings and Neural Networks.md",
+    "README.md",
+    "predictions.md",
+    "Story Grammars.md",
+    "stimuli.md",
+    "Bower, G. H. (1976). Experiments on Story Understanding and Recall. The Quarterly Journal of Experimental Psychology, 28(4), 511-534..md",
+    "black-j-b--bower-g-h-1980-story-understanding-as-problem-solving-poetics-91-3-223-250.md",
+    "baggett-p-1979-structurally-equivalent-stories-in-movie-and-text-and-the-effect-of-the-medium-on-recall-journal-of-verbal-learning-and-verbal-behavior-183-333-356.md",
+    "pdfs/Text_Structure_and_Reading_Tim.pdf",
+    "selection-for-2212022.md"
+  ]
+}
